@@ -30,4 +30,28 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  clients:
+    new:
+      heading: Create New Client
+      contact_details: Contact Details
+      name_help: The name to display on invoices.
+      nick_name_help: The name to use in e-mail messages.
+      addresses: Addresses
+      second_line_help: Optional
+      third_line_help: Optional
+  helpers:
+    submit:
+      create: Create New Client
+    label:
+      client:
+        name: "Name"
+        nick_name: "Nick Name"
+        email_address: "E-mail Address"
+        phone_number: "Phone Number"
+      address:
+        first_line: First Line
+        second_line: Second Line
+        third_line: Third Line
+
+        town: Town
+        post_code: Post Code

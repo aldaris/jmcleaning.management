@@ -13,7 +13,6 @@ module Jmcleaning
 
     config.action_dispatch.default_headers.merge!({
       "X-Frame-Options" => "DENY",
-      "Referrer-Policy" => "no-referrer",
       "Feature-Policy" => "accelerometer 'none'; ambient-light-sensor 'none'; animations 'none'; autoplay 'none'; "\
        "camera 'none'; cookie 'none'; document-stream-insertion 'none'; domain 'none'; encrypted-media 'none'; "\
        "fullscreen 'none'; geolocation 'none'; gyroscope 'none'; image-compression 'none'; "\
