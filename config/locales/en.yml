@@ -36,7 +36,7 @@ en:
       contact_details: Contact Details
       name_help: The name to display on invoices.
       nick_name_help: The name to use in e-mail messages.
-      addresses: Addresses
+      billing_address: Billing Address
       second_line_help: Optional
       third_line_help: Optional
   helpers:
