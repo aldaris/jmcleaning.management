@@ -20,6 +20,6 @@ class CreateAddresses < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    add_foreign_key :addresses, :clients
+    add_foreign_key :clients, :addresses, column: :billing_address_id
   end
 end
