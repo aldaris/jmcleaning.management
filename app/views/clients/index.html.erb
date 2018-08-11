@@ -1,2 +1,17 @@
-<h1>Clients#show</h1>
-<p>Find me in app/views/clients/show.html.erb</p>
+<h1>Clients</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th class="col">Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.name %></td>
+        <td><%= link_to 'Show', client_path(client) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
