@@ -35,5 +35,38 @@ ActiveRecord::Schema.define(version: 2018_08_02_125158) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "invoice_items", force: :cascade do |t|
+    t.bigint "price_id"
+    t.decimal "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "invoice_id"
+    t.index ["invoice_id"], name: "index_invoice_items_on_invoice_id"
+    t.index ["price_id"], name: "index_invoice_items_on_price_id"
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.date "issue_date"
+    t.bigint "client_id"
+    t.date "due_date"
+    t.binary "pdf"
+    t.boolean "is_draft"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_invoices_on_client_id"
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.string "description"
+    t.decimal "amount"
+    t.boolean "is_active"
+    t.boolean "is_visible"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "clients", "addresses", column: "billing_address_id"
+  add_foreign_key "invoice_items", "invoices"
+  add_foreign_key "invoice_items", "prices"
+  add_foreign_key "invoices", "clients"
 end
