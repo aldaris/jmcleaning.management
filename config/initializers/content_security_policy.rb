@@ -6,10 +6,10 @@
 
 Rails.application.config.content_security_policy do |policy|
   policy.default_src :none
-  policy.font_src    :none
+  policy.font_src    "https://use.fontawesome.com"
   policy.img_src     :none
   policy.object_src  :none
-  policy.script_src  :self
+  policy.script_src  :self, "https://code.jquery.com"
   policy.style_src   :self, "https://stackpath.bootstrapcdn.com", "https://use.fontawesome.com"
 
   # Specify URI for violation reports
