@@ -39,6 +39,9 @@ en:
       billing_address: Billing Address
       second_line_help: Optional
       third_line_help: Optional
+  invoices:
+    new:
+      heading: Create New Invoice
   helpers:
     submit:
       create: Create New Client

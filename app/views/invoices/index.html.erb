@@ -1,0 +1,20 @@
+<h1>Invoices</h1>
+<% if @draft_invoices.empty? %>
+  <h3>No draft invoices</h3>
+<% else %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th class="col">Issue Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @draft_invoices.each do |invoice| %>
+        <tr>
+          <td><%= invoice.issue_date %></td>
+          <td><%= link_to 'Show', invoice_path(invoice) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

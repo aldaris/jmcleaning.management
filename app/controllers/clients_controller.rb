@@ -22,10 +22,19 @@ class ClientsController < ApplicationController
     redirect_to @client
   end
 
+  def search
+    @clients = Client.select(:id, :name)
+                   .where("lower(name) LIKE ?", "%#{params.require(:name).downcase}%")
+                   .order("name ASC")
+                   .limit(10)
+    render json: @clients
+  end
+
   private
-    def client_params
-      params.require(:client).permit(:name, :nick_name, :email_address, :phone_number, :billing_address_attributes)
-    end
+
+  def client_params
+    params.require(:client).permit(:name, :nick_name, :email_address, :phone_number)
+  end
 
   def address_params
     params.require(:billing_address).permit(:first_line, :second_line, :third_line, :town, :post_code)
