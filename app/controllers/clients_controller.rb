@@ -27,7 +27,12 @@ class ClientsController < ApplicationController
                    .where("lower(name) LIKE ?", "%#{params.require(:name).downcase}%")
                    .order("name ASC")
                    .limit(10)
-    render json: @clients
+    render layout: nil
+  end
+
+  def card
+    @client = Client.find(params[:id])
+    render layout: nil
   end
 
   private

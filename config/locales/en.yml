@@ -42,6 +42,9 @@ en:
   invoices:
     new:
       heading: Create New Invoice
+      search: Find client
+      client_details: Client Details
+      invoice_details: Invoice Details
   helpers:
     submit:
       create: Create New Client

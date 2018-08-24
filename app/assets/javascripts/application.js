@@ -10,5 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require_tree .
+// require rails_ujs
+
+const hide = element => {
+    element.classList.remove("d-block");
+    element.classList.add("d-none");
+};
+
+const show = element => {
+    element.classList.remove("d-none");
+    element.classList.add("d-block");
+};

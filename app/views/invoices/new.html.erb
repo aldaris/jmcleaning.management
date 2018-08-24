@@ -1,6 +1,29 @@
+<% content_for :scripts do %>
+  <%= javascript_include_tag :invoices, defer: true %>
+<% end %>
 <div class="col-md-10 offset-md-1">
   <h1><%= t ".heading" %></h1>
   <%= form_with model: @invoice, local: true do |form| %>
-    <% text_field_tag "search_client", nil, class: "form-control", autocomplete: "off" %>
+    <div class="card mb-5">
+      <h5 class="card-header"><i class="fas fa-user-tie"></i> <%= t ".client_details" %></h5>
+      <div class="card-body">
+        <div id="search" class="form-group">
+          <%= label_tag "search_client", t(".search") %>
+          <%= text_field_tag "search_client", nil, class: "form-control", autocomplete: "off" %>
+          <div class="col-auto">
+            <div id="found_clients" class="form-group dropdown-menu border-top-0 rounded-0">
+            </div>
+          </div>
+        </div>
+        <div id="selected_client">
+        </div>
+        <%= form.hidden_field :client_id %>
+      </div>
+      <h5 class="card-header border-top">
+        <i class="fas fa-clipboard-list"></i> <%= t ".invoice_details" %>
+      </h5>
+      <div class="card-body">
+      </div>
+    </div>
   <% end %>
 </div>
