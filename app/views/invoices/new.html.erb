@@ -19,10 +19,12 @@
         </div>
         <%= form.hidden_field :client_id %>
       </div>
-      <h5 class="card-header border-top">
-        <i class="fas fa-clipboard-list"></i> <%= t ".invoice_details" %>
-      </h5>
-      <div class="card-body">
+      <div id="invoice-container" class="d-none">
+        <h5 class="card-header border-top">
+          <i class="fas fa-clipboard-list"></i> <%= t ".invoice_details" %>
+        </h5>
+        <div class="card-body">
+        </div>
       </div>
     </div>
   <% end %>

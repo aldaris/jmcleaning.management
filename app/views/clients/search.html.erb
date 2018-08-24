@@ -1,3 +1,5 @@
-<% @clients.each do |client| %>
+<% if @clients.each do |client| %>
   <a class="dropdown-item" data-id="<%= client.id %>"><%= client.name %></a>
+<% end.empty? %>
+  <span class="dropdown-item"><%= t ".no_results" %></span>
 <% end %>

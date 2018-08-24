@@ -14,6 +14,7 @@ const handleAutoCompleteClick = event => {
             hide(document.getElementById("search"));
             document.getElementById("selected_client").innerHTML = text;
             document.getElementById("invoice_client_id").value = clientId;
+            show(document.getElementById("invoice-container"));
         });
 };
 

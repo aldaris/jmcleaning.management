@@ -1,3 +1,8 @@
 // Place all the styles related to the Invoices controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.dropdown-item {
+  cursor: pointer;
+  padding: 0.375rem 0.75rem;
+}

@@ -39,6 +39,8 @@ en:
       billing_address: Billing Address
       second_line_help: Optional
       third_line_help: Optional
+    search:
+      no_results: There is no such client
   invoices:
     new:
       heading: Create New Invoice
