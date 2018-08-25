@@ -47,6 +47,11 @@ en:
       search: Find client
       client_details: Client Details
       invoice_details: Invoice Details
+  prices:
+    new:
+      heading: New Billing Item
+      details: Details
+      description_help: The work description to display on invoices.
   helpers:
     submit:
       create: Create New Client
@@ -63,3 +68,5 @@ en:
 
         town: Town
         post_code: Post Code
+      price:
+        description: Description

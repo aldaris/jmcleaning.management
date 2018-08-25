@@ -1,0 +1,38 @@
+<div class="col-md-10 offset-md-1">
+  <h1><%= t ".heading" %></h1>
+  <%= form_with model: @client, local: true do |form| %>
+    <div class="card mb-5">
+      <h5 class="card-header"><i class="fas fa-file-invoice-dollar"></i> <%= t ".details" %></h5>
+      <div class="card-body">
+        <div class="form-group">
+          <%= form.label :description %>
+          <%= form.text_field :description, class: "form-control" %>
+          <small class="form-text text-muted">
+            <%= t ".description_help" %>
+          </small>
+        </div>
+        <div class="form-group">
+          <%= form.label :amount %>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">£</div>
+            </div>
+            <%= form.number_field :amount, class: "form-control" %>
+          </div>
+
+          <small class="form-text text-muted">
+            <%= t ".nick_name_help" %>
+          </small>
+        </div>
+        <div class="form-group">
+          <%= form.label :email_address %>
+          <%= form.email_field :email_address, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= form.label :phone_number %>
+          <%= form.text_field :phone_number, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
