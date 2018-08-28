@@ -53,8 +53,6 @@ en:
       details: Details
       description_help: The work description to display on invoices.
   helpers:
-    submit:
-      create: Create New Client
     label:
       client:
         name: "Name"
@@ -65,8 +63,14 @@ en:
         first_line: First Line
         second_line: Second Line
         third_line: Third Line
-
         town: Town
         post_code: Post Code
       price:
         description: Description
+        amount: Amount
+        is_active: Active
+    submit:
+      client:
+        create: Create New Client
+      price:
+        create: Create New Billing Item

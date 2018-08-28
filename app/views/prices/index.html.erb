@@ -1,0 +1,20 @@
+<h1>Prices</h1>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th class="col"><%= t ".description" %></th>
+    <th class="col"><%= t ".amount" %></th>
+    <th class="col"><%= t ".actions" %></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @active_prices.each do |active_price| %>
+    <tr>
+      <td><%= active_price.description %></td>
+      <td>£<%= active_price.amount %></td>
+      <td>magic</td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
