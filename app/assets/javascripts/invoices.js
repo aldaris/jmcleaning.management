@@ -21,31 +21,29 @@ const handleAutoCompleteClick = event => {
 const handleAutoComplete = event => {
     const term = event.currentTarget.value;
     clearTimeout(changeTimer);
-    if (term.length > 1) {
-        changeTimer = setTimeout(() => {
-            fetch(`/clients/search/${encodeURIComponent(term)}`)
-                .then(response => {
-                    if (response.ok) {
-                        return response.text();
-                    } else {
-                        return Promise.resolve("<span class='dropdown-item text-danger'>Unable to query clients</span>");
-                    }
-                })
-                .then(text => {
-                    const foundClients = document.getElementById("found_clients");
-                    foundClients.innerHTML = text;
-                    show(foundClients);
-                    let items = document.querySelectorAll("#found_clients > [data-id]");
-                    for (i = 0; i < items.length; i++) {
-                        items[i].addEventListener("click", handleAutoCompleteClick);
-                    }
-                });
-        }, 500);
-    } else {
-        hide(document.getElementById("found_clients"));
-    }
+    changeTimer = setTimeout(() => {
+        fetch(`/clients/search/${encodeURIComponent(term)}`)
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                } else {
+                    return Promise.resolve("<span class='dropdown-item text-danger'>Unable to query clients</span>");
+                }
+            })
+            .then(text => {
+                const foundClients = document.getElementById("found_clients");
+                foundClients.innerHTML = text;
+                show(foundClients);
+                let items = document.querySelectorAll("#found_clients > [data-id]");
+                for (i = 0; i < items.length; i++) {
+                    items[i].addEventListener("click", handleAutoCompleteClick);
+                }
+            });
+    }, 500);
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("search_client").addEventListener("input", handleAutoComplete);
+    let searchField = document.getElementById("search_client");
+    searchField.addEventListener("input", handleAutoComplete);
+    searchField.addEventListener("focus", handleAutoComplete);
 });

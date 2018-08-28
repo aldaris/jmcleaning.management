@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'invoices#index'
+
+  get 'clients/search(/:name)', to: "clients#search"
 
   resources :clients do
-    get 'search/:name', to: "clients#search", on: :collection
     get 'card', on: :member
   end
 

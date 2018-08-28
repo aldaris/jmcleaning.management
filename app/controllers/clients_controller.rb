@@ -23,10 +23,15 @@ class ClientsController < ApplicationController
   end
 
   def search
-    @clients = Client.select(:id, :name)
-                   .where("lower(name) LIKE ?", "%#{params.require(:name).downcase}%")
-                   .order("name ASC")
-                   .limit(10)
+    if (params.has_key?(:name))
+      @clients = Client.select(:id, :name)
+                     .where("lower(name) LIKE ?", "%#{params.require(:name).downcase}%")
+                     .order("name ASC")
+                     .limit(10)
+    else
+      @clients = Client.all.order("name ASC").limit(10)
+    end
+
     render layout: nil
   end
 
