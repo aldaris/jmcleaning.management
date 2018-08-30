@@ -42,8 +42,23 @@ const handleAutoComplete = event => {
     }, 500);
 };
 
+const addCloseListener = node => {
+    node.addEventListener("click", event => {
+        const card = node.parentNode.parentNode;
+        card.classList.add("fade-out");
+        setTimeout(() => {
+            card.parentNode.removeChild(card);
+        }, 1000);
+    });
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     let searchField = document.getElementById("search_client");
     searchField.addEventListener("input", handleAutoComplete);
     searchField.addEventListener("focus", handleAutoComplete);
+
+    let closeButtons = document.querySelectorAll(".close");
+    for (i = 0; i < closeButtons.length; i++) {
+        addCloseListener(closeButtons[i]);
+    }
 });
