@@ -30,9 +30,25 @@
           </div>
           <div class="form-group">
             <%= form.label :invoice_items %>
-          </div>
-          <div class="form-inline">
-            <%=  %>
+            <%= form.fields_for :invoice_items do |item_fields| %>
+              <div class="card bg-light mb-3">
+                <div class="mr-2">
+                  <span class="text-danger close" aria-label="Close">&times;</span>
+                </div>
+                <div class="card-body py-0">
+                  <div class="form-row">
+                    <div class="form-group col-md-10">
+                      <%= item_fields.label :price_id %>
+                      <%= item_fields.collection_select :price_id, Price.all, :id, :description, {include_blank: true}, class: "form-control" %>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <%= item_fields.label :quantity %>
+                      <%= item_fields.number_field :quantity, step: 0.5, class: "form-control" %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
