@@ -10,16 +10,12 @@ class ClientsController < ApplicationController
 
   def new
     @client = Client.new
-    @client.billing_address = Address.new
+    @client.address = Address.new
   end
 
   def create
-    @billing_address = Address.new(address_params)
-    @billing_address.save
-    @client = Client.new(client_params)
-    @client.billing_address_id = @billing_address.id
-    @client.save
-    redirect_to @client
+    Client.create(client_params)
+    redirect_to clients_path
   end
 
   def search
@@ -43,10 +39,7 @@ class ClientsController < ApplicationController
   private
 
   def client_params
-    params.require(:client).permit(:name, :nick_name, :email_address, :phone_number)
-  end
-
-  def address_params
-    params.require(:billing_address).permit(:first_line, :second_line, :third_line, :town, :post_code)
+    params.require(:client).permit(:name, :nick_name, :email_address, :phone_number,
+        address_attributes: [:first_line, :second_line, :third_line, :town, :post_code])
   end
 end

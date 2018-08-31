@@ -1,4 +1,4 @@
 class Address < ApplicationRecord
-  has_one :client
+  belongs_to :client
   validates :first_line, :town, :post_code, presence: true
 end

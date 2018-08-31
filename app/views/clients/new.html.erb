@@ -33,7 +33,7 @@
         <i class="far fa-address-card"></i> <%= t ".billing_address" %>
       </h5>
       <div class="card-body">
-        <%= fields_for :billing_address, @client.billing_address do |form_address| %>
+        <%= form.fields_for :address do |form_address| %>
           <div class="form-group">
             <%= form_address.label :first_line %>
             <%= form_address.text_field :first_line, class: "form-control" %>

@@ -5,11 +5,11 @@ class CreateDb < ActiveRecord::Migration[5.2]
       t.string :nick_name
       t.string :email_address
       t.string :phone_number
-      t.bigint :billing_address_id
       t.timestamps
     end
 
     create_table :addresses do |t|
+      t.belongs_to :client
       t.string :first_line
       t.string :second_line
       t.string :third_line
@@ -18,7 +18,7 @@ class CreateDb < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    add_foreign_key :clients, :addresses, column: :billing_address_id
+    add_foreign_key :addresses, :clients
 
     create_table :prices do |t|
       t.string :description

@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2018_08_02_125158) do
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
+    t.bigint "client_id"
     t.string "first_line"
     t.string "second_line"
     t.string "third_line"
@@ -23,6 +24,7 @@ ActiveRecord::Schema.define(version: 2018_08_02_125158) do
     t.string "post_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_addresses_on_client_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -30,7 +32,6 @@ ActiveRecord::Schema.define(version: 2018_08_02_125158) do
     t.string "nick_name"
     t.string "email_address"
     t.string "phone_number"
-    t.bigint "billing_address_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,7 +66,7 @@ ActiveRecord::Schema.define(version: 2018_08_02_125158) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "clients", "addresses", column: "billing_address_id"
+  add_foreign_key "addresses", "clients"
   add_foreign_key "invoice_items", "invoices"
   add_foreign_key "invoice_items", "prices"
   add_foreign_key "invoices", "clients"
