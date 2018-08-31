@@ -39,7 +39,7 @@
                   <div class="form-row">
                     <div class="form-group col-md-10">
                       <%= item_fields.label :price_id %>
-                      <%= item_fields.collection_select :price_id, Price.all, :id, :description, {include_blank: true}, class: "form-control" %>
+                      <%= item_fields.collection_select :price_id, Price.all, :id, :description_with_price, {include_blank: true}, class: "form-control" %>
                     </div>
                     <div class="form-group col-md-2">
                       <%= item_fields.label :quantity %>
