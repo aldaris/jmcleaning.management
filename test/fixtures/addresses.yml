@@ -5,11 +5,11 @@ one:
   second_line: MyString
   third_line: MyString
   town: MyString
-  postCode: MyString
+  post_code: MyString
 
 two:
   first_line: MyString
   second_line: MyString
   third_line: MyString
   town: MyString
-  postCode: MyString
+  post_code: MyString

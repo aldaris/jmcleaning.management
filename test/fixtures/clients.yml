@@ -5,13 +5,9 @@ one:
   nick_name: MyString
   email_address: MyString
   phone_number: MyString
-  add_foreign_key: MyString
-  : 
 
 two:
   name: MyString
   nick_name: MyString
   email_address: MyString
   phone_number: MyString
-  add_foreign_key: MyString
-  : 

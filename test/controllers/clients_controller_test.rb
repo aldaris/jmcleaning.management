@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class ClientsControllerTest < ActionDispatch::IntegrationTest
-  test "should get show" do
-    get clients_show_url
+  test "should get index" do
+    get clients_path
     assert_response :success
   end
 
