@@ -17,6 +17,7 @@ class ClientsController < ApplicationController
     @client = Client.new(client_params)
 
     if @client.valid?
+      @client.save
       redirect_to clients_path
     else
       render :new
