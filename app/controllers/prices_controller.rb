@@ -11,8 +11,14 @@ class PricesController < ApplicationController
   end
 
   def create
-    Price.create(price_params)
-    redirect_to prices_url
+    @price = Price.new(price_params)
+
+    if @price.valid?
+      @price.save
+      redirect_to prices_url
+    else
+      render :new
+    end
   end
 
   private
