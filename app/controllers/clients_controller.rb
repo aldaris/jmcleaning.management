@@ -14,8 +14,13 @@ class ClientsController < ApplicationController
   end
 
   def create
-    Client.create(client_params)
-    redirect_to clients_path
+    @client = Client.new(client_params)
+
+    if @client.valid?
+      redirect_to clients_path
+    else
+      render :new
+    end
   end
 
   def search

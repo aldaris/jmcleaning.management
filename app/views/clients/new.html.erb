@@ -1,64 +1,31 @@
 <div class="col-md-10 offset-md-1">
   <h1><%= t ".heading" %></h1>
-  <%= form_with model: @client, local: true do |form| %>
+  <%= simple_form_for @client do |form| %>
     <div class="card mb-5">
       <h5 class="card-header"><i class="fas fa-user-tie"></i> <%= t ".contact_details" %></h5>
       <div class="card-body">
         <div class="form-row">
-          <div class="form-group col-md-6">
-            <%= form.label :name %>
-            <%= form.text_field :name, class: "form-control", autocomplete: "off" %>
-            <small class="form-text text-muted">
-              <%= t ".name_help" %>
-            </small>
-          </div>
-          <div class="form-group col-md-6">
-            <%= form.label :nick_name %>
-            <%= form.text_field :nick_name, class: "form-control" %>
-            <small class="form-text text-muted">
-              <%= t ".nick_name_help" %>
-            </small>
-          </div>
+          <%= form.input :name, wrapper_html: {class: "col-md-6"} %>
+          <%= form.input :nick_name, wrapper_html: {class: "col-md-6"} %>
         </div>
-        <div class="form-group">
-          <%= form.label :email_address %>
-          <%= form.email_field :email_address, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= form.label :phone_number %>
-          <%= form.text_field :phone_number, class: "form-control" %>
-        </div>
+        <%= form.input :email_address %>
+        <%= form.input :phone_number %>
       </div>
       <h5 class="card-header border-top">
         <i class="far fa-address-card"></i> <%= t ".billing_address" %>
       </h5>
       <div class="card-body">
-        <%= form.fields_for :address do |form_address| %>
-          <div class="form-group">
-            <%= form_address.label :first_line %>
-            <%= form_address.text_field :first_line, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= form_address.label :second_line %>
-            <%= form_address.text_field :second_line, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= form_address.label :third_line %>
-            <%= form_address.text_field :third_line, class: "form-control" %>
+        <%= form.simple_fields_for :address do |form_address| %>
+          <%= form_address.input :first_line %>
+          <%= form_address.input :second_line %>
+          <%= form_address.input :third_line %>
+          <div class="form-row">
+            <%= form_address.input :town, wrapper_html: {class: "col-md-5"} %>
           </div>
           <div class="form-row">
-            <div class="form-group col-md-5">
-              <%= form_address.label :town %>
-              <%= form_address.text_field :town, class: "form-control" %>
-            </div>
+            <%= form_address.input :post_code, wrapper_html: {class: "col-md-4"} %>
           </div>
-          <div class="form-row">
-            <div class="form-group col-md-4">
-              <%= form_address.label :post_code %>
-              <%= form_address.text_field :post_code, class: "form-control", maxlength: 10 %>
-            </div>
-          </div>
-        <%= form.submit class: "btn btn-primary btn-block"%>
+          <%= form.button :submit, class: "btn-primary btn-block" %>
         <% end %>
       </div>
     </div>

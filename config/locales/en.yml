@@ -30,12 +30,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  errors:
+    messages:
+      blank: is required
+      invalid_phone_number: is in wrong format
   clients:
     new:
       heading: Create New Client
       contact_details: Contact Details
-      name_help: The name to display on invoices.
-      nick_name_help: The name to use in e-mail messages.
       billing_address: Billing Address
       second_line_help: Optional
       third_line_help: Optional
@@ -51,14 +53,21 @@ en:
     new:
       heading: New Billing Item
       details: Details
+  simple_form:
+    labels:
+      client:
+        name: Name
+        nick_name: Nick Name
+        email_address: E-mail Address
+        phone_number: Phone Number
+    hints:
+      client:
+        name: The name to display on invoices
+        nick_name: The name to use in e-mail messages
+        phone_number: "For example: +441234567890"
       description_help: The work description to display on invoices.
   helpers:
     label:
-      client:
-        name: "Name"
-        nick_name: "Nick Name"
-        email_address: "E-mail Address"
-        phone_number: "Phone Number"
       address:
         first_line: First Line
         second_line: Second Line
