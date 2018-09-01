@@ -3,29 +3,10 @@
   <div class="card mb-5">
     <h5 class="card-header"><i class="fas fa-file-invoice-dollar"></i> <%= t ".details" %></h5>
     <div class="card-body">
-      <%= form_with model: @price, local: true do |form| %>
-        <div class="form-group">
-          <%= form.label :description %>
-          <%= form.text_field :description, class: "form-control" %>
-          <small class="form-text text-muted">
-            <%= t ".description_help" %>
-          </small>
-        </div>
-        <div class="form-group">
-          <%= form.label :amount %>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text">£</div>
-            </div>
-            <%= form.number_field :amount, class: "form-control" %>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="form-check">
-            <%= form.check_box :is_active, class: "form-check-input", checked: true %>
-            <%= form.label :is_active, class: "form-check-label" %>
-          </div>
-        </div>
+      <%= simple_form_for @price do |form| %>
+        <%= form.input :description %>
+        <%= form.input :amount, wrapper: :input_group, prepend: "£" %>
+        <%= form.input :is_active %>
         <%= form.submit class: "btn btn-primary btn-block" %>
       <% end %>
     </div>

@@ -7,7 +7,7 @@ class PricesController < ApplicationController
   end
 
   def new
-    @price = Price.new
+    @price = Price.new(is_active: true)
   end
 
   def create

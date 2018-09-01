@@ -65,7 +65,8 @@ en:
         name: The name to display on invoices
         nick_name: The name to use in e-mail messages
         phone_number: "For example: +441234567890"
-      description_help: The work description to display on invoices.
+      price:
+        description: The work description to display on invoices
   helpers:
     label:
       address:
