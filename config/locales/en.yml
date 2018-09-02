@@ -50,9 +50,9 @@ en:
       search: Find client
       client_details: Client Details
       invoice_details: Invoice Details
-  prices:
+  services:
     new:
-      heading: New Billing Item
+      heading: New Service
       details: Details
   simple_form:
     labels:
@@ -67,7 +67,7 @@ en:
         third_line: Third Line
         town: Town
         post_code: Post Code
-      price:
+      service:
         description: Description
         amount: Amount
         is_active: Active

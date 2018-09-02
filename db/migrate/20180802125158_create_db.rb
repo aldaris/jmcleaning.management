@@ -20,21 +20,21 @@ class CreateDb < ActiveRecord::Migration[5.2]
 
     add_foreign_key :addresses, :clients
 
-    create_table :prices do |t|
+    create_table :services do |t|
       t.string :description
-      t.decimal :amount
+      t.decimal :price
       t.boolean :is_active
       t.boolean :is_visible
       t.timestamps
     end
 
     create_table :invoice_items do |t|
-      t.belongs_to :price
+      t.belongs_to :service
       t.decimal :quantity
       t.timestamps
     end
 
-    add_foreign_key :invoice_items, :prices
+    add_foreign_key :invoice_items, :services
 
     create_table :invoices do |t|
       t.date :issue_date

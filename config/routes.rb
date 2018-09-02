@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     get 'card', on: :member
   end
 
-  resources :invoices, :prices
+  resources :invoices, :services
 end

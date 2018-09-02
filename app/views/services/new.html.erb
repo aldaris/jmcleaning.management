@@ -3,9 +3,9 @@
   <div class="card mb-5">
     <h5 class="card-header"><i class="fas fa-file-invoice-dollar"></i> <%= t ".details" %></h5>
     <div class="card-body">
-      <%= simple_form_for @price do |form| %>
+      <%= simple_form_for @service do |form| %>
         <%= form.input :description %>
-        <%= form.input :amount, input_html: {min: 1}, wrapper: :input_group, prepend: "£" %>
+        <%= form.input :price, input_html: {min: 1}, wrapper: :input_group, prepend: "£" %>
         <%= form.input :is_active %>
         <%= form.submit class: "btn btn-primary btn-block" %>
       <% end %>
