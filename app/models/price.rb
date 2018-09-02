@@ -1,6 +1,7 @@
 class Price < ApplicationRecord
   has_many :invoice_items
-  validates :description, :amount, presence: true
+  validates_presence_of :description
+  validates_numericality_of :price, greater_than_or_equal_to: 1
 
   def description_with_price
     "#{description} - £#{'%.2f' % amount}"

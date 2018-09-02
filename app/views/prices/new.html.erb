@@ -5,7 +5,7 @@
     <div class="card-body">
       <%= simple_form_for @price do |form| %>
         <%= form.input :description %>
-        <%= form.input :amount, wrapper: :input_group, prepend: "£" %>
+        <%= form.input :amount, input_html: {min: 1}, wrapper: :input_group, prepend: "£" %>
         <%= form.input :is_active %>
         <%= form.submit class: "btn btn-primary btn-block" %>
       <% end %>
