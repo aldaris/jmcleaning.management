@@ -25,6 +25,7 @@
         </h5>
         <div class="card-body">
           <%= form.input :issue_date, html5: true %>
+          <%= form.input :due_date, html5: true %>
           <div class="form-group">
             <%= form.label :invoice_items %>
             <%= form.fields_for :invoice_items do |item_fields| %>

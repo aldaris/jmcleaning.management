@@ -6,5 +6,6 @@ class InvoicesController < ApplicationController
   def new
     @invoice = Invoice.new
     @invoice.issue_date = Date.today
+    @invoice.due_date = Date.today + 7.days
   end
 end
