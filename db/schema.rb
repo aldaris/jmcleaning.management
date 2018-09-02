@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 2018_08_02_125158) do
     t.bigint "client_id"
     t.date "due_date"
     t.binary "pdf"
-    t.boolean "is_draft"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_invoices_on_client_id"

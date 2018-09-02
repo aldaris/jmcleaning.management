@@ -41,7 +41,6 @@ class CreateDb < ActiveRecord::Migration[5.2]
       t.belongs_to :client
       t.date :due_date
       t.binary :pdf
-      t.boolean :is_draft
       t.timestamps
     end
 
