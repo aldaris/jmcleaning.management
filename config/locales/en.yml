@@ -34,6 +34,7 @@ en:
     messages:
       blank: is required
       invalid_phone_number: is in wrong format
+      not_a_number: is required
   clients:
     new:
       heading: Create New Client
