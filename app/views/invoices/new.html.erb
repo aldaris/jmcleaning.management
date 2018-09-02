@@ -36,13 +36,14 @@
                 <div class="card-body py-0">
                   <div class="form-row">
                     <%= item_fields.association :service, collection: Service.where(is_active: true).order(:description),
-                        label_method: :description_with_price, wrapper_html: { class: "col-md-10" } %>
-                    <%= item_fields.input :quantity, input_html: {step: 0.5, min: 0.5}, wrapper_html: { class: "col-md-2" } %>
+                        label_method: :description_with_price, wrapper_html: {class: "col-md-10"} %>
+                    <%= item_fields.input :quantity, input_html: {step: 0.5, min: 0.5}, wrapper_html: {class: "col-md-2"} %>
                   </div>
                 </div>
               </div>
             <% end %>
           </div>
+          <%= form.button :submit, class: "btn-primary btn-block" %>
         </div>
       </div>
     </div>
