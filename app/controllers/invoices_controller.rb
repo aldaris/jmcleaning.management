@@ -20,6 +20,18 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def show
+    @invoice = Invoice.find(params[:id])
+    respond_to do |format|
+      format.pdf do
+        pdf = Prawn::Document.new
+        pdf.text 'Foo bar'
+
+        send_data pdf.render, filename: "invoice_#{@invoice.id}", type: 'application/pdf', disposition: 'inline'
+      end
+    end
+  end
+
   private
 
   def invoice_params
