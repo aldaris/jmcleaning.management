@@ -1,0 +1,13 @@
+owner:
+  name: Dev User
+  address:
+  - "Hello World"
+  - "Foobar"
+  - "Badger"
+  - "BS12 3AB"
+  website: "https://jmcleaning.services"
+  utr_number: 12345 67890
+  bank:
+    company: Little Piggy Bank
+    account_number: 12345678
+    sort_code: 12-34-56
