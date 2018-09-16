@@ -21,7 +21,7 @@ class InvoicesController < ApplicationController
   end
 
   def show
-    @invoice = Invoice.find(params[:id])
+    @invoice = Invoice.includes(client: [:address], invoice_items: [:service]).find(params[:id])
     respond_to do |format|
       format.pdf do
         pdf = Prawn::Document.new
