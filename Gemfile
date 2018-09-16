@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'prawn', '~> 2.2.2'
+gem 'prawn-table', '~> 0.2.2'
 gem 'responders', '~> 2.4.0'
 
 # Reduces boot times through caching; required in config/boot.rb

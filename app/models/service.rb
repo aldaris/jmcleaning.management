@@ -4,6 +4,14 @@ class Service < ApplicationRecord
   validates_numericality_of :price, greater_than_or_equal_to: 1
 
   def description_with_price
-    "#{description} - £#{'%.2f' % price}"
+    "#{description} - #{formatted_price}"
+  end
+
+  def formatted_price
+    format_currency(price)
+  end
+
+  def formatted_sum(quantity)
+    format_currency(price * quantity)
   end
 end

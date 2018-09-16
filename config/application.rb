@@ -11,6 +11,8 @@ module Jmcleaning
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
+    config.autoload_paths += %W(#{config.root}/lib)
+
     config.action_dispatch.default_headers.merge!({
       "X-Frame-Options" => "DENY",
       "Feature-Policy" => "accelerometer 'none'; ambient-light-sensor 'none'; animations 'none'; autoplay 'none'; "\

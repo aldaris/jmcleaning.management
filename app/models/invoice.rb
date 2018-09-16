@@ -6,4 +6,8 @@ class Invoice < ApplicationRecord
   validates_associated :invoice_items
 
   accepts_nested_attributes_for :invoice_items
+
+  def invoice_id
+    "INV-#{"%04d" % id}"
+  end
 end
