@@ -1,17 +1,27 @@
-<h1>Clients</h1>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th class="col">Name</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @clients.each do |client| %>
+<% if @clients.empty? %>
+  <div class="card bg-light">
+    <h5 class="card-header">Oops!</h5>
+    <div class="card-body">
+      <h5 class="card-title">Looks like there are no clients.</h5>
+      <p class="card-text">To create a new client, click on the button below.</p>
+      <a href="#" class="btn btn-primary">Add</a>
+    </div>
+  </div>
+<% else %>
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= client.name %></td>
-        <td><%= link_to 'Show', client_path(client) %></td>
+        <th class="col">Name</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @clients.each do |client| %>
+        <tr>
+          <td><%= client.name %></td>
+          <td><%= link_to 'Show', client_path(client) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

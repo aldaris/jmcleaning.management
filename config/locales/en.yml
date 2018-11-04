@@ -36,6 +36,8 @@ en:
       invalid_phone_number: is in wrong format
       not_a_number: is required
   clients:
+    index:
+      no_clients: No clients stored
     new:
       heading: Create New Client
       contact_details: Contact Details

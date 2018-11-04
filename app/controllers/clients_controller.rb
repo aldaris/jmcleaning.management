@@ -1,7 +1,7 @@
 class ClientsController < ApplicationController
 
   def index
-    @clients = Client.all.order(:name)
+    @clients = Client.all.select(:id, :name).order(:name)
   end
 
   def show

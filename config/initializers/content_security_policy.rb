@@ -7,10 +7,10 @@
 Rails.application.config.content_security_policy do |policy|
   policy.default_src :none
   policy.font_src    "https://use.fontawesome.com"
-  policy.img_src     :self
+  policy.img_src     :self, "data:" # Bootstrap v4 support for navbar hamburger :(
   policy.object_src  :none
-  policy.script_src  :self, "https://code.jquery.com"
-  policy.style_src   :self, "https://stackpath.bootstrapcdn.com", "https://use.fontawesome.com"
+  policy.script_src  :self, "https://cdnjs.cloudflare.com/ajax/libs/bootstrap.native/"
+  policy.style_src   :self, "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/", "https://use.fontawesome.com"
   policy.connect_src :self
 
   # Specify URI for violation reports
