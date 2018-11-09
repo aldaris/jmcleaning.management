@@ -22,3 +22,7 @@
 body {
     background-color: #d9dde6;
 }
+
+[data-href] {
+    cursor: pointer;
+}

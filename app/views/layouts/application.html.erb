@@ -17,11 +17,6 @@
           crossorigin="anonymous">
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap.native/2.0.23/bootstrap-native-v4.min.js"
-            integrity="sha256-4ITt997uLxXYjs5kgacUSOF0E1G1ai/U2dKy3Fq/wqA="
-            crossorigin="anonymous"
-            defer>
-    </script>
     <%= javascript_include_tag 'application', defer: true %>
     <%= yield :scripts %>
   </head>
@@ -31,7 +26,7 @@
       <div class="container">
         <a class="navbar-brand" href="/">JM Cleaning</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span><i class="fas fa-bars"></i></span>
         </button>
         <div class="navbar-collapse collapse" id="navbar">
           <div class="navbar-nav">
