@@ -9,7 +9,7 @@
     <div class="card-body">
       <strong class="text-secondary"><%= t "simple_form.labels.client.email_address" %>:</strong><br>
       <%= @client.email_address %><br>
-      <strong class="text-secondary"><%= t "simple_form.labels.client.address" %>:</strong><br>
+      <strong class="text-secondary"><i class="far fa-address-card"></i> <%= t "simple_form.labels.client.address" %>:</strong><br>
       <% @client.address.compact_lines.each do |address_line| %>
         <%= address_line %><br>
       <% end %>
