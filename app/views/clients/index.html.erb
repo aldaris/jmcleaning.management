@@ -11,20 +11,26 @@
     </div>
   </div>
 <% else %>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th class="col">Name</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @clients.each do |client| %>
+  <h2>Clients</h2>
+  <%= form_tag remove_clients_path, method: :delete do %>
+    <%= link_to 'Add', new_client_path, class: "btn btn-primary" %>
+    <%= submit_tag "Remove", class: "btn btn-primary" %>
+    <table class="table table-hover mt-3">
+      <thead>
         <tr>
-          <td><%= client.name %></td>
-          <td data-href="<%= client_path(client) %>"><%= client.name %></td>
+          <th>[]</th>
+          <th class="col">Name</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        <% @clients.each do |client| %>
+          <tr>
+            <td><%= check_box_tag "ids[]", client.id %></td>
+            <td data-href="<%= client_path(client) %>"><%= client.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
 <% end %>

@@ -42,6 +42,11 @@ class ClientsController < ApplicationController
     render layout: nil
   end
 
+  def remove
+    Client.where(id: params[:ids]).destroy_all
+    redirect_to clients_path
+  end
+
   private
 
   def client_params
