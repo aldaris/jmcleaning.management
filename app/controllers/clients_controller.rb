@@ -13,6 +13,10 @@ class ClientsController < ApplicationController
     @client.address = Address.new
   end
 
+  def edit
+    @client = Client.find(params[:id])
+  end
+
   def create
     @client = Client.new(client_params)
 
@@ -21,6 +25,15 @@ class ClientsController < ApplicationController
       redirect_to clients_path
     else
       render :new
+    end
+  end
+
+  def update
+    @client = Client.find(params[:id])
+    if @client.update(client_params)
+      redirect_to client_path(params[:id])
+    else
+      render :edit
     end
   end
 
@@ -46,6 +59,6 @@ class ClientsController < ApplicationController
 
   def client_params
     params.require(:client).permit(:name, :nick_name, :email_address, :phone_number,
-        address_attributes: [:first_line, :second_line, :third_line, :town, :post_code])
+        address_attributes: [:id, :first_line, :second_line, :third_line, :town, :post_code])
   end
 end

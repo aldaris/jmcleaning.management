@@ -41,6 +41,8 @@ en:
       heading: Create New Client
       contact_details: Contact Details
       billing_address: Billing Address
+    edit:
+      heading: Edit Client
     search:
       no_results: There is no such client
   invoices:

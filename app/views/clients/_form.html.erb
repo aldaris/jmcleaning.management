@@ -1,0 +1,29 @@
+<%= simple_form_for @client do |form| %>
+  <div class="card mb-5">
+    <h5 class="card-header"><i class="fas fa-user-tie"></i> <%= t ".contact_details" %></h5>
+    <div class="card-body">
+      <div class="form-row">
+        <%= form.input :name, wrapper_html: {class: "col-md-6"} %>
+        <%= form.input :nick_name, wrapper_html: {class: "col-md-6"} %>
+      </div>
+      <%= form.input :email_address %>
+    </div>
+    <h5 class="card-header border-top">
+      <i class="far fa-address-card"></i> <%= t ".billing_address" %>
+    </h5>
+    <div class="card-body">
+      <%= form.simple_fields_for :address do |form_address| %>
+        <%= form_address.input :first_line %>
+        <%= form_address.input :second_line %>
+        <%= form_address.input :third_line %>
+        <div class="form-row">
+          <%= form_address.input :town, wrapper_html: {class: "col-md-5"} %>
+        </div>
+        <div class="form-row">
+          <%= form_address.input :post_code, wrapper_html: {class: "col-md-4"} %>
+        </div>
+        <%= form.button :submit, class: "btn-primary btn-block" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
