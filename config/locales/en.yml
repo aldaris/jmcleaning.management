@@ -61,6 +61,7 @@ en:
         name: Name
         nick_name: Nick Name
         email_address: E-mail Address
+        address: Billing Address
       address:
         first_line: First Line
         second_line: Second Line - Optional
@@ -83,3 +84,9 @@ en:
         create: Create New Client
       price:
         create: Create New Billing Item
+  call_for_action:
+    header: Oh no!
+    title: Looks like there are no %{model_name}.
+    text: To create a new %{model_name}, click on the button below.
+    add: Add
+

@@ -3,19 +3,19 @@
 <% end %>
 <% if @clients.empty? %>
   <div class="card bg-light">
-    <h5 class="card-header">Oh no!</h5>
+    <h5 class="card-header"><%= t 'call_for_action.header' %></h5>
     <div class="card-body">
-      <h5 class="card-title">Looks like there are no clients.</h5>
-      <p class="card-text">To create a new client, click on the button below.</p>
-      <%= link_to 'Add', new_client_path, class: "btn btn-primary" %>
+      <h5 class="card-title"><%= t 'call_for_action.title', model_name: Client.model_name.plural %></h5>
+      <p class="card-text"><%= t 'call_for_action.text', model_name: Client.model_name.singular %></p>
+      <%= link_to t('call_for_action.add'), new_client_path, class: "btn btn-primary" %>
     </div>
   </div>
 <% else %>
-  <%= link_to 'Add', new_client_path, class: "btn btn-primary" %>
+  <%= link_to t('call_for_action.add'), new_client_path, class: "btn btn-primary" %>
   <table class="table table-hover mt-3">
     <thead>
       <tr>
-        <th class="col">Name</th>
+        <th class="col"><%= t 'simple_form.labels.client.name' %></th>
       </tr>
     </thead>
 
