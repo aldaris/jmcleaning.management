@@ -41,8 +41,6 @@ en:
       heading: Create New Client
       contact_details: Contact Details
       billing_address: Billing Address
-      second_line_help: Optional
-      third_line_help: Optional
     search:
       no_results: There is no such client
   invoices:
@@ -63,8 +61,8 @@ en:
         email_address: E-mail Address
       address:
         first_line: First Line
-        second_line: Second Line
-        third_line: Third Line
+        second_line: Second Line - Optional
+        third_line: Third Line - Optional
         town: Town
         post_code: Post Code
       service:
