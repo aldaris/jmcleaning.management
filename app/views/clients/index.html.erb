@@ -20,8 +20,9 @@
 
     <tbody>
       <% @clients.each do |client| %>
-        <tr data-href="<%= client_path(client) %>">
+        <tr>
           <td><%= client.name %></td>
+          <td data-href="<%= client_path(client) %>"><%= client.name %></td>
         </tr>
       <% end %>
     </tbody>
