@@ -1,1 +1,18 @@
-<%= @client.name %>
+<div class="col">
+  <div class="card bg-light">
+    <h3 class="card-header">
+      <i class="fas fa-user-tie"></i> <%= @client.name %><span class="text-muted"> - <%= @client.nick_name %></span>
+      <%= link_to edit_client_path, class: "float-right" do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+    </h3>
+    <div class="card-body">
+      <strong class="text-secondary">E-mail:</strong><br>
+      <%= @client.email_address %><br>
+      <strong class="text-secondary">Address:</strong><br>
+      <% @client.address.compact_lines.each do |line| %>
+        <%= line %><br>
+      <% end %>
+    </div>
+  </div>
+</div>
