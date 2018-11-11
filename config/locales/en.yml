@@ -33,7 +33,6 @@ en:
   errors:
     messages:
       blank: is required
-      invalid_phone_number: is in wrong format
       not_a_number: is required
   clients:
     index:
@@ -62,7 +61,6 @@ en:
         name: Name
         nick_name: Nick Name
         email_address: E-mail Address
-        phone_number: Phone Number
       address:
         first_line: First Line
         second_line: Second Line
@@ -77,7 +75,6 @@ en:
       client:
         name: The name to display on invoices
         nick_name: The name to use in e-mail messages
-        phone_number: "In the format of: +441234567890"
       price:
         description: The work description to display on invoices
   helpers:
