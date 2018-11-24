@@ -52,8 +52,14 @@ en:
       client_details: Client Details
       invoice_details: Invoice Details
   services:
+    index:
+      active_services: Active Services
+      inactive_services: Inactive Services
+      inactivate:
+        success: The service has been successfully inactivated.
+        failed: Unable to inactivate service.
     new:
-      heading: New Service
+      heading: Create New Service
       details: Details
   simple_form:
     labels:

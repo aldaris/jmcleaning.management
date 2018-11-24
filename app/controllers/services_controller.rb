@@ -21,6 +21,21 @@ class ServicesController < ApplicationController
     end
   end
 
+  def inactivate
+    service = Service.inactivate(params[:id])
+    if service.save
+      flash[:success] = t 'services.index.inactivate.success'
+    else
+      flash[:failed] = t 'services.index.inactivate.failed'
+    end
+    redirect_to services_path
+  end
+
+  def duplicate
+    @service = Service.find(params[:id]).dup
+    render :new
+  end
+
   private
 
   def price_params

@@ -1,20 +1,67 @@
-<h1>Services</h1>
-<table class="table table-hover">
-  <thead>
-  <tr>
-    <th class="col"><%= t ".description" %></th>
-    <th class="col"><%= t ".price" %></th>
-    <th class="col"><%= t ".actions" %></th>
-  </tr>
-  </thead>
+<% content_for :scripts do %>
+  <%= javascript_include_tag :utils, defer: true %>
+<% end %>
+<% if flash[:success] %>
+  <div class="alert alert-success text-center" role="alert"><%= flash[:success] %></div>
+<% elsif flash[:failed] %>
+  <div class="alert alert-danger text-center" role="alert"><%= flash[:failed] %></div>
+<% end %>
+<h2><%= t '.active_services' %></h2>
+<% if @active_services.empty? %>
+  <div class="card bg-light mb-3">
+    <h5 class="card-header"><%= t 'call_for_action.header' %></h5>
+    <div class="card-body">
+      <h5 class="card-title"><%= t 'call_for_action.title', model_name: Service.model_name.plural %></h5>
+      <p class="card-text"><%= t 'call_for_action.text', model_name: Service.model_name.singular %></p>
+      <%= link_to t('call_for_action.add'), new_service_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+<% else %>
+  <%= link_to t('call_for_action.add'), new_service_path, class: "btn btn-primary" %>
+  <div class="table-responsive-sm">
+  <table class="table table-hover mt-3">
+    <thead>
+      <tr>
+        <th class="col"><%= t ".description" %></th>
+        <th class="col"><%= t ".price" %></th>
+        <th class="col text-right"><%= t ".actions" %></th>
+      </tr>
+    </thead>
 
-  <tbody>
-  <% @active_services.each do |active_price| %>
-    <tr>
-      <td><%= active_price.description %></td>
-      <td>£<%= active_price.price %></td>
-      <td>magic</td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+    <tbody>
+      <% @active_services.each do |service| %>
+        <tr>
+          <td><%= service.description %></td>
+          <td>£<%= service.price %></td>
+          <td class="text-nowrap">
+            <%= link_to "Inactivate", inactivate_service_path(service), class: 'btn btn-sm btn-danger', method: :put %>
+            <%= link_to "Duplicate", duplicate_service_path(service), class: 'btn btn-sm btn-danger', method: :put %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table></div>
+<% end %>
+
+<% unless @inactive_services.empty? %>
+  <h2><%= t '.inactive_services' %></h2>
+  <table class="table table-hover mt-3">
+    <thead>
+      <tr>
+        <th class="col"><%= t ".description" %></th>
+        <th class="col"><%= t ".price" %></th>
+        <th class="col"><%= t ".actions" %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @inactive_services.each do |service| %>
+        <tr>
+          <td><%= service.description %></td>
+          <td>£<%= service.price %></td>
+          <td>magic</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
