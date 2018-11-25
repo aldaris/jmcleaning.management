@@ -53,11 +53,11 @@ en:
       invoice_details: Invoice Details
   services:
     index:
-      active_services: Active Services
-      inactive_services: Inactive Services
       inactivate:
+        title: Inactivate
         success: The service has been successfully inactivated.
         failed: Unable to inactivate service.
+      actions: Actions
     new:
       heading: Create New Service
       details: Details
@@ -76,7 +76,7 @@ en:
         post_code: Post Code
       service:
         description: Description
-        amount: Amount
+        price: Price
         is_active: Active
     hints:
       client:
@@ -95,4 +95,8 @@ en:
     title: Looks like there are no %{model_name}.
     text: To create a new %{model_name}, click on the button below.
     add: Add
-
+  modal:
+    action: Yes, I'm sure
+    body: This change cannot be reversed.
+    close: Close
+    title: Are you sure?

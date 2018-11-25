@@ -13,14 +13,15 @@ module Jmcleaning
 
     config.autoload_paths += %W(#{config.root}/lib)
 
-    config.action_dispatch.default_headers.merge!({
-      "X-Frame-Options" => "DENY",
-      "Feature-Policy" => "accelerometer 'none'; ambient-light-sensor 'none'; animations 'none'; autoplay 'none'; "\
-       "camera 'none'; encrypted-media 'none'; "\
-       "fullscreen 'none'; geolocation 'none'; gyroscope 'none'; image-compression 'none'; "\
-       "legacy-image-formats 'none'; magnetometer 'none'; max-downscaling-image 'none'; microphone 'none'; "\
-       "midi 'none'; payment 'none'; picture-in-picture 'none'; speaker 'none'; sync-script 'none'; "\
-       "sync-xhr 'none'; unsized-media 'none'; usb 'none'; vertical-scroll 'none'; vr 'none'"})
+    # document.policy.allowedFeatures().sort().join(" 'none'; ") + " 'none'";
+    config.action_dispatch.default_headers.merge!(
+      'X-Frame-Options' => 'DENY',
+      'Feature-Policy' => "accelerometer 'none'; ambient-light-sensor 'none'; animations 'none'; autoplay 'none'; "\
+       "camera 'none'; document-write 'none'; encrypted-media 'none'; fullscreen 'none'; geolocation 'none'; "\
+       "gyroscope 'none'; image-compression 'none'; legacy-image-formats 'none'; magnetometer 'none'; "\
+       "max-downscaling-image 'none'; microphone 'none'; midi 'none'; payment 'none'; picture-in-picture 'none'; "\
+       "speaker 'none'; sync-script 'none'; sync-xhr 'none'; unsized-media 'none'; usb 'none'; "\
+       "vertical-scroll 'none'; vr 'none'")
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

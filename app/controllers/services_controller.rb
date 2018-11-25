@@ -1,9 +1,7 @@
 class ServicesController < ApplicationController
 
   def index
-    services = Service.all.order(:price)
-    @active_services = services.select {|price| price.is_active}
-    @inactive_services = services.reject {|price| price.is_active}
+    @active_services = Service.where(is_active: true).order(:price)
   end
 
   def new

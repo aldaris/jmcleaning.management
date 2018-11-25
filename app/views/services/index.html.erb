@@ -6,7 +6,6 @@
 <% elsif flash[:failed] %>
   <div class="alert alert-danger text-center" role="alert"><%= flash[:failed] %></div>
 <% end %>
-<h2><%= t '.active_services' %></h2>
 <% if @active_services.empty? %>
   <div class="card bg-light mb-3">
     <h5 class="card-header"><%= t 'call_for_action.header' %></h5>
@@ -22,8 +21,8 @@
   <table class="table table-hover mt-3">
     <thead>
       <tr>
-        <th class="col"><%= t ".description" %></th>
-        <th class="col"><%= t ".price" %></th>
+        <th class="col"><%= t "simple_form.labels.service.description" %></th>
+        <th class="col"><%= t "simple_form.labels.service.price" %></th>
         <th class="col text-right"><%= t ".actions" %></th>
       </tr>
     </thead>
@@ -34,8 +33,10 @@
           <td><%= service.description %></td>
           <td>£<%= service.price %></td>
           <td class="text-nowrap">
-            <%= link_to "Inactivate", inactivate_service_path(service), class: 'btn btn-sm btn-danger', method: :put %>
-            <%= link_to "Duplicate", duplicate_service_path(service), class: 'btn btn-sm btn-danger', method: :put %>
+            <%= link_to "Duplicate", duplicate_service_path(service), class: 'btn btn-sm btn-secondary', method: :put %>
+            <button type="button" class="btn btn-sm btn-danger"
+                    data-modal="<%= inactivate_service_path(service) %>"
+                    data-target="#confirmDialog"><%= t '.inactivate.title' %></button>
           </td>
         </tr>
       <% end %>
@@ -43,25 +44,22 @@
   </table></div>
 <% end %>
 
-<% unless @inactive_services.empty? %>
-  <h2><%= t '.inactive_services' %></h2>
-  <table class="table table-hover mt-3">
-    <thead>
-      <tr>
-        <th class="col"><%= t ".description" %></th>
-        <th class="col"><%= t ".price" %></th>
-        <th class="col"><%= t ".actions" %></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @inactive_services.each do |service| %>
-        <tr>
-          <td><%= service.description %></td>
-          <td>£<%= service.price %></td>
-          <td>magic</td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+<div class="modal fade" id="confirmDialog" tabindex="-1" role="dialog" aria-labelledby="confirmDialogLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmDialogLabel"><%= t 'modal.title' %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= t 'modal.body' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t 'modal.close' %></button>
+        <a id="modal-action" class="btn btn-danger" rel="nofollow" data-method="put"><%= t 'modal.action' %></a>
+      </div>
+    </div>
+  </div>
+</div>
