@@ -47,6 +47,7 @@ Config.setup do |config|
     required(:owner).schema do
       required(:name).filled
       required(:address).filled
+      required(:website).filled
       required(:utr_number).filled
       required(:bank).schema do
         required(:company).filled
