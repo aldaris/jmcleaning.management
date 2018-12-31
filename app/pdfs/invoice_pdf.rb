@@ -17,7 +17,7 @@ class InvoicePdf < Prawn::Document
     ], at: [370, 630], width: 80, height: 100, size: 10
     text_box "#{Settings.owner.name}\n#{Settings.owner.address.join("\n")}",
         at: [470, 630], width: 70, height: 60, align: :right, size: 10
-    move_cursor_to 450
+    move_cursor_to 500
     font_size 11
     number_of_items = invoice.invoice_items.size
     table(invoice_items_data(invoice), cell_style: {borders: [], padding: [4, 4, 4, 4]}) do
@@ -38,10 +38,14 @@ class InvoicePdf < Prawn::Document
     move_down 40
     font_size 18
     text "Due Date: #{invoice.due_date.strftime("%d %B %Y")}", style: :bold
+    move_down 12
+    text 'PAYMENT ADVICE'
     font_size 11
     text "Electronic Payments: #{Settings.owner.bank.company}, "\
       "Account number: #{Settings.owner.bank.account_number}, "\
       "Sort Code: #{Settings.owner.bank.sort_code}"
+
+    # Footer text
     move_cursor_to 9
     font_size 9
     bounding_box([bounds.left, bounds.bottom], width: bounds.width, height: 30) do
@@ -50,7 +54,6 @@ class InvoicePdf < Prawn::Document
       "UTR Number: #{Settings.owner.utr_number}\n"\
       "Web: <color rgb='007bff'><link href='#{Settings.owner.website}'>#{Settings.owner.website}</link></color>",
           inline_format: true
-
     end
   end
 
