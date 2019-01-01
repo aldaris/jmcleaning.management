@@ -23,11 +23,10 @@ class InvoicesController < ApplicationController
   end
 
   def show
-    @invoice = Invoice.includes(client: [:address], invoice_items: [:service]).find(params[:id])
+    @invoice = Invoice.find(params[:id])
     respond_to do |format|
       format.pdf do
-        pdf = InvoicePdf.new(@invoice)
-        send_data pdf.render, filename: "#{@invoice.invoice_id}.pdf", type: 'application/pdf', disposition: 'inline'
+        send_data @invoice.pdf, filename: "#{@invoice.invoice_id}.pdf", type: 'application/pdf', disposition: 'inline'
       end
     end
   end
