@@ -2,25 +2,32 @@
   <%= javascript_include_tag :utils, defer: true %>
 <% end %>
 <% if @invoices.empty? %>
-  beep
+  <div class="card bg-light">
+    <h5 class="card-header"><%= t 'call_for_action.header' %></h5>
+    <div class="card-body">
+      <h5 class="card-title"><%= t 'call_for_action.title', model_name: Invoice.model_name.plural %></h5>
+      <p class="card-text"><%= t 'call_for_action.text', model_name: Invoice.model_name.singular %></p>
+      <%= link_to t('call_for_action.add'), new_invoice_path, class: "btn btn-primary" %>
+    </div>
+  </div>
 
 <% else %>
   <%= link_to t('call_for_action.add'), new_invoice_path, class: "btn btn-primary" %>
   <table class="table table-hover mt-3">
     <thead>
       <tr class="d-flex">
-        <th class="col"><%= t '.invoice_id' %></th>
+        <th class="col-2"><%= t '.invoice_id' %></th>
         <th class="col"><%= t 'simple_form.labels.client.name' %></th>
-        <th class="col"><%= t 'simple_form.labels.invoice.sum' %></th>
+        <th class="col-2"><%= t '.total' %></th>
       </tr>
     </thead>
 
     <tbody>
       <% @invoices.each do |invoice| %>
         <tr class="d-flex" data-href="<%= invoice_path(invoice, format: :pdf) %>">
-          <td class="col"><%= invoice.invoice_id %></td>
+          <td class="col-2"><%= invoice.invoice_id %></td>
           <td class="col"><%= invoice.client.name %></td>
-          <td class="col"><%= invoice.due_date %></td>
+          <td class="col-2"><%= Utils.format_currency(invoice.total) %></td>
         </tr>
       <% end %>
     </tbody>

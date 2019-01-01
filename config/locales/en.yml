@@ -28,6 +28,7 @@ en:
   invoices:
     index:
       invoice_id: Invoice ID
+      total: Total
     new:
       client_details: Client Details
       heading: Create New Invoice

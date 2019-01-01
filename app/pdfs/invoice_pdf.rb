@@ -65,13 +65,11 @@ class InvoicePdf < Prawn::Document
 
   def invoice_items_data(invoice)
     data = [['Description', 'Quantity', 'Price', 'Amount']]
-    total = 0
     invoice.invoice_items.each do |item|
-      total += item.quantity * item.service.price
       data.push [item.service.description, item.quantity, Utils.format_currency(item.service.price),
           Utils.format_currency(item.service.price * item.quantity)]
     end
-    data.push ['Total', '', {content: Utils.format_currency(total), colspan: 2}]
+    data.push ['Total', '', {content: Utils.format_currency(invoice.total), colspan: 2}]
     return data
   end
 end
