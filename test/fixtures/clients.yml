@@ -4,10 +4,8 @@ one:
   name: MyString
   nick_name: MyString
   email_address: MyString
-  phone_number: MyString
 
 two:
   name: MyString
   nick_name: MyString
   email_address: MyString
-  phone_number: MyString

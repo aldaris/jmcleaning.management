@@ -5,11 +5,9 @@ one:
   due_date: 2018-08-11
   client: 
   pdf: 
-  is_draft: false
 
 two:
   issue_date: 2018-08-11
   due_date: 2018-08-11
   client: 
   pdf: 
-  is_draft: false
