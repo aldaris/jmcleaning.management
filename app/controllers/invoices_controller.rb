@@ -1,7 +1,7 @@
 class InvoicesController < ApplicationController
 
   def index
-    @draft_invoices = Invoice.where(is_draft: true)
+    @invoices = Invoice.all.includes(:client).order(id: :desc).limit(10)
   end
 
   def new

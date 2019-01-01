@@ -1,1 +1,28 @@
-<h1>Invoices</h1>
+<% content_for :scripts do %>
+  <%= javascript_include_tag :utils, defer: true %>
+<% end %>
+<% if @invoices.empty? %>
+  beep
+
+<% else %>
+  <%= link_to t('call_for_action.add'), new_invoice_path, class: "btn btn-primary" %>
+  <table class="table table-hover mt-3">
+    <thead>
+      <tr class="d-flex">
+        <th class="col"><%= t 'simple_form.labels.invoice.issue_date' %></th>
+        <th class="col"><%= t 'simple_form.labels.client.name' %></th>
+        <th class="col"><%= t 'simple_form.labels.invoice.sum' %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @invoices.each do |invoice| %>
+        <tr class="d-flex" data-href="<%= invoice_path(invoice, format: :pdf) %>">
+          <td class="col"><%= invoice.issue_date %></td>
+          <td class="col"><%= invoice.client.name %></td>
+          <td class="col"><%= invoice.due_date %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
