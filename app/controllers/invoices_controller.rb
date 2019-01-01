@@ -1,7 +1,7 @@
 class InvoicesController < ApplicationController
 
   def index
-    @invoices = Invoice.all.includes(:client).order(id: :desc).limit(10)
+    @invoices = Invoice.all.select(:id, :client_id, :due_date).includes(:client).order(id: :desc).limit(10)
   end
 
   def new

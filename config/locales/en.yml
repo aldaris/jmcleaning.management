@@ -26,6 +26,8 @@ en:
       service:
         create: Create New Service
   invoices:
+    index:
+      invoice_id: Invoice ID
     new:
       client_details: Client Details
       heading: Create New Invoice
@@ -70,9 +72,6 @@ en:
         email_address: E-mail Address
         name: Name
         nick_name: Nick Name
-      invoice:
-        issue_date: Issue Date
-        sum: Sum
       service:
         description: Description
         is_active: Active

@@ -9,7 +9,7 @@
   <table class="table table-hover mt-3">
     <thead>
       <tr class="d-flex">
-        <th class="col"><%= t 'simple_form.labels.invoice.issue_date' %></th>
+        <th class="col"><%= t '.invoice_id' %></th>
         <th class="col"><%= t 'simple_form.labels.client.name' %></th>
         <th class="col"><%= t 'simple_form.labels.invoice.sum' %></th>
       </tr>
@@ -18,7 +18,7 @@
     <tbody>
       <% @invoices.each do |invoice| %>
         <tr class="d-flex" data-href="<%= invoice_path(invoice, format: :pdf) %>">
-          <td class="col"><%= invoice.issue_date %></td>
+          <td class="col"><%= invoice.invoice_id %></td>
           <td class="col"><%= invoice.client.name %></td>
           <td class="col"><%= invoice.due_date %></td>
         </tr>
