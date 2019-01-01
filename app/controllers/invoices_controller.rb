@@ -14,6 +14,8 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.new(invoice_params)
     if @invoice.valid?
       @invoice.save
+      pdf = InvoicePdf.new(@invoice)
+      @invoice.update_attribute(:pdf, pdf.render)
       redirect_to invoices_path
     else
       render :new
