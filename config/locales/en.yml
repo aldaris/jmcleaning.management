@@ -1,102 +1,79 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
+---
 en:
+  call_for_action:
+    add: Add
+    header: Oh no!
+    text: To create a new %{model_name}, click on the button below.
+    title: Looks like there are no %{model_name}.
+  clients:
+    edit:
+      heading: Edit Client
+    form:
+      billing_address: Billing Address
+      contact_details: Contact Details
+    new:
+      heading: Create New Client
+    search:
+      no_results: There is no such client
   errors:
     messages:
       blank: is required
       not_a_number: is required
-  clients:
-    index:
-      no_clients: No clients stored
-    new:
-      heading: Create New Client
-      contact_details: Contact Details
-      billing_address: Billing Address
-    edit:
-      heading: Edit Client
-    search:
-      no_results: There is no such client
+  helpers:
+    submit:
+      client:
+        create: Create New Client
+      service:
+        create: Create New Service
   invoices:
     new:
-      heading: Create New Invoice
-      search: Find client
       client_details: Client Details
+      heading: Create New Invoice
       invoice_details: Invoice Details
+      search: Find client
+  layouts:
+    application:
+      clients: Clients
+      invoices: Invoices
+      services: Services
+  modal:
+    action: Yes, I'm sure
+    body: This change cannot be reversed.
+    close: Close
+    title: Are you sure?
   services:
     index:
-      inactivate:
-        title: Inactivate
-        success: The service has been successfully inactivated.
-        failed: Unable to inactivate service.
       actions: Actions
+      inactivate:
+        failed: Unable to inactivate service.
+        success: The service has been successfully inactivated.
+        title: Inactivate
     new:
-      heading: Create New Service
       details: Details
+      heading: Create New Service
   simple_form:
-    labels:
-      client:
-        name: Name
-        nick_name: Nick Name
-        email_address: E-mail Address
-        address: Billing Address
-      address:
-        first_line: First Line
-        second_line: Second Line - Optional
-        third_line: Third Line - Optional
-        town: Town
-        post_code: Post Code
-      service:
-        description: Description
-        price: Price
-        is_active: Active
     hints:
       client:
         name: The name to display on invoices
         nick_name: The name to use in e-mail messages
       price:
         description: The work description to display on invoices
-  helpers:
-    submit:
+    labels:
+      address:
+        first_line: First Line
+        post_code: Post Code
+        second_line: Second Line - Optional
+        third_line: Third Line - Optional
+        town: Town
       client:
-        create: Create New Client
-      price:
-        create: Create New Billing Item
-  call_for_action:
-    header: Oh no!
-    title: Looks like there are no %{model_name}.
-    text: To create a new %{model_name}, click on the button below.
-    add: Add
-  modal:
-    action: Yes, I'm sure
-    body: This change cannot be reversed.
-    close: Close
-    title: Are you sure?
+        address: Billing Address
+        email_address: E-mail Address
+        name: Name
+        nick_name: Nick Name
+      invoice:
+        issue_date: Issue Date
+        sum: Sum
+      service:
+        description: Description
+        is_active: Active
+        price: Price
