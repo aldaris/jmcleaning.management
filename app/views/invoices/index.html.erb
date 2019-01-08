@@ -13,23 +13,25 @@
 
 <% else %>
   <%= link_to t('call_for_action.add'), new_invoice_path, class: "btn btn-primary" %>
-  <table class="table table-hover mt-3">
-    <thead>
-      <tr class="d-flex">
-        <th class="col-2"><%= t '.invoice_id' %></th>
-        <th class="col"><%= t 'simple_form.labels.client.name' %></th>
-        <th class="col-2"><%= t '.total' %></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @invoices.each do |invoice| %>
-        <tr class="d-flex" data-href="<%= invoice_path(invoice, format: :pdf) %>">
-          <td class="col-2"><%= invoice.invoice_id %></td>
-          <td class="col"><%= invoice.client.name %></td>
-          <td class="col-2"><%= Utils.format_currency(invoice.total) %></td>
+  <div class="table-responsive-sm">
+    <table class="table table-hover mt-3">
+      <thead>
+        <tr>
+          <th><%= t '.invoice_id' %></th>
+          <th><%= t 'simple_form.labels.client.name' %></th>
+          <th><%= t '.total' %></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        <% @invoices.each do |invoice| %>
+          <tr data-href="<%= invoice_path(invoice, format: :pdf) %>">
+            <td><%= invoice.invoice_id %></td>
+            <td class="text-nowrap"><%= invoice.client.name %></td>
+            <td><%= Utils.format_currency(invoice.total) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 <% end %>
