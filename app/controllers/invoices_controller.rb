@@ -8,6 +8,7 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.new
     @invoice.issue_date = Date.today
     @invoice.due_date = Date.today + 3.days
+    @invoice.invoice_items = [InvoiceItem.new, InvoiceItem.new]
   end
 
   def create
