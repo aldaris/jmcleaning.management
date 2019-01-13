@@ -25,5 +25,5 @@ production:
   encoding: unicode
   database: jmcleaning
   host: localhost
-  username: <%= Rails.application.credentials.dig(:production, :db_name) %>
+  username: <%= Rails.application.credentials.dig(:production, :db_user) %>
   password: <%= Rails.application.credentials.dig(:production, :db_password) %>
