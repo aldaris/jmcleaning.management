@@ -10,9 +10,9 @@ class InvoicePdf < Prawn::Document
     move_cursor_to 630
     text invoice.client.address.compact_lines.join("\n")
     formatted_text_box [
-        {text: "Invoice Date\n", styles: [:bold]},
-        {text: "#{invoice.issue_date.strftime("%d %b %Y")}\n\n"},
-        {text: "Invoice Number\n", styles: [:bold]},
+        {text: 'Invoice Date\n', styles: [:bold]},
+        {text: "#{invoice.issue_date.strftime('%d %b %Y')}\n\n"},
+        {text: 'Invoice Number\n', styles: [:bold]},
         {text: "#{invoice.invoice_id}\n\n"}
     ], at: [370, 630], width: 80, height: 100, size: 10
     text_box "#{Settings.owner.name}\n#{Settings.owner.address.join("\n")}",
@@ -37,7 +37,7 @@ class InvoicePdf < Prawn::Document
     end
     move_down 40
     font_size 18
-    text "Due Date: #{invoice.due_date.strftime("%d %B %Y")}", style: :bold
+    text "Due Date: #{invoice.due_date.strftime('%d %B %Y')}", style: :bold
     move_down 12
     text 'PAYMENT ADVICE'
     font_size 11
@@ -50,7 +50,7 @@ class InvoicePdf < Prawn::Document
     font_size 9
     bounding_box([bounds.left, bounds.bottom], width: bounds.width, height: 30) do
       move_down 5
-      text "#{Settings.owner.name}, Address: #{Settings.owner.address.join(", ")}, "\
+      text "#{Settings.owner.name}, Address: #{Settings.owner.address.join(', ')}, "\
       "UTR Number: #{Settings.owner.utr_number}\n"\
       "Web: <color rgb='007bff'><link href='#{Settings.owner.website}'>#{Settings.owner.website}</link></color>",
           inline_format: true
