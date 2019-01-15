@@ -38,11 +38,12 @@ class ClientsController < ApplicationController
   end
 
   def search
-    if (params.has_key?(:name))
-      @clients = Client.select(:id, :name)
-                     .where('lower(name) LIKE ?', "%#{params.require(:name).downcase}%")
-                     .order('name ASC')
-                     .limit(10)
+    if params.has_key?(:name)
+      @clients = Client
+                 .select(:id, :name)
+                 .where('lower(name) LIKE ?', "%#{params.require(:name).downcase}%")
+                 .order('name ASC')
+                 .limit(10)
     else
       @clients = Client.all.order('name ASC').limit(10)
     end
@@ -58,7 +59,9 @@ class ClientsController < ApplicationController
   private
 
   def client_params
-    params.require(:client).permit(:name, :nick_name, :email_address, :phone_number,
-        address_attributes: [:id, :first_line, :second_line, :third_line, :town, :post_code])
+    params
+      .require(:client)
+      .permit(:name, :nick_name, :email_address, :phone_number,
+              address_attributes: %i[id first_line second_line third_line town post_code])
   end
 end

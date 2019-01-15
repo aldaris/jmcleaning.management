@@ -3,33 +3,27 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
-# Allow using YAML config files for the project
-gem 'config', '~> 1.7.0'
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.2'
-# Use postgresql as the database for Active Record
-gem 'pg'
-# Use Puma as the app server
-gem 'puma', '~> 3.11'
-gem 'simple_form', '~> 4.0.1'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-gem 'prawn', '~> 2.2.2'
-gem 'prawn-table', '~> 0.2.2'
-gem 'responders', '~> 2.4.0'
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
+# Allow using YAML config files for the project
+gem 'config', '~> 1.7.0'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 2.5'
+# Use postgresql as the database for Active Record
+gem 'pg'
+gem 'prawn', '~> 2.2.2'
+gem 'prawn-table', '~> 0.2.2'
+# Use Puma as the app server
+gem 'puma', '~> 3.11'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 5.2.2'
+gem 'responders', '~> 2.4.0'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 5.0'
+gem 'simple_form', '~> 4.0.1'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -38,20 +32,18 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
-  gem 'i18n-tasks', '~> 0.9.28'
-  gem 'sqlite3', '~> 1.3.13'
-  # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15', '< 4.0'
-  gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'i18n-tasks', '~> 0.9.28'
+  gem 'selenium-webdriver'
   gem 'simplecov', '~> 0.16.1', require: false
+  gem 'sqlite3', '~> 1.3.13'
 end
