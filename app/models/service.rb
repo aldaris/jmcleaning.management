@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Service < ApplicationRecord
   has_many :invoice_items
   validates_presence_of :description

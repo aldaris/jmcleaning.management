@@ -2,5 +2,8 @@ AllCops:
   Exclude:
     - 'bin/*'
 
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: beginning_only
+
 Metrics/LineLength:
   Max: 120
