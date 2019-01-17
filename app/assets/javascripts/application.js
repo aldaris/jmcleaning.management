@@ -22,13 +22,13 @@ const show = element => {
     element.classList.add("d-block");
 };
 
-const fetchWithGet = (url, error) => {
+const fetchWithGet = (url, errorPromise) => {
     return fetch(url)
         .then(response => {
             if (response.ok) {
                 return response.text();
             } else {
-                return error();
+                return errorPromise;
             }
         });
 };

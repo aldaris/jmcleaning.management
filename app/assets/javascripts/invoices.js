@@ -3,7 +3,7 @@ let changeTimer;
 const handleSuggestionSelection = event => {
     const clientId = event.currentTarget.getAttribute("data-id");
     fetchWithGet(`/clients/${encodeURIComponent(clientId)}/card`,
-        () => Promise.resolve("<span class='text-danger'>Failed to retrieve client details"))
+        Promise.resolve("<span class='text-danger'>Failed to retrieve client details"))
         .then(text => {
             hide(document.getElementById("search"));
             document.getElementById("selected_client").innerHTML = text;
@@ -17,7 +17,7 @@ const retrieveAutoCompleteSuggestions = event => {
     clearTimeout(changeTimer);
     changeTimer = setTimeout(() => {
         fetchWithGet(`/clients/search/${encodeURIComponent(term)}`,
-            () => Promise.resolve("<span class='dropdown-item text-danger'>Unable to query clients</span>"))
+            Promise.resolve("<span class='dropdown-item text-danger'>Unable to query clients</span>"))
             .then(text => {
                 const foundClients = document.getElementById("found_clients");
                 foundClients.innerHTML = text;
