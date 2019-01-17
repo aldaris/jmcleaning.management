@@ -2,7 +2,6 @@
 
 # The backend implementation for the /services REST resource.
 class ServicesController < ApplicationController
-
   def index
     @active_services = Service.where(is_active: true).order(:price)
   end

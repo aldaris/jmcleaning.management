@@ -2,7 +2,6 @@
 
 # The backend implementation for the /invoices REST resource.
 class InvoicesController < ApplicationController
-
   def index
     @invoices = Invoice
                 .all

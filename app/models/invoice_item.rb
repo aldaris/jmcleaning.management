@@ -2,7 +2,6 @@
 
 # Represents an invoice item in the database.
 class InvoiceItem < ApplicationRecord
-
   belongs_to :service
   belongs_to :invoice
 

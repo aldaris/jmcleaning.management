@@ -2,7 +2,6 @@
 
 # The backend implementation for the /clients REST resource.
 class ClientsController < ApplicationController
-
   def index
     @clients = Client.all.select(:id, :name).order(:name)
   end

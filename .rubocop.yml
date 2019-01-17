@@ -1,15 +1,14 @@
 AllCops:
   Exclude:
     - 'bin/*'
+    - 'config.ru'
     - 'Gemfile'
     - 'Rakefile'
-
-Layout/EmptyLinesAroundClassBody:
-  EnforcedStyle: beginning_only
 
 Metrics/LineLength:
   Max: 120
 
+# Not ready to embrace these:
 Style/ConditionalAssignment:
   Enabled: false
 

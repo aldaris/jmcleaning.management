@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
+# Generates an invoice PDF based on the database representation of an invoice.
 class InvoicePdf < Prawn::Document
-
   def initialize(invoice)
     super()
     image path('small-logo.png'), at: [367, 720], width: 120

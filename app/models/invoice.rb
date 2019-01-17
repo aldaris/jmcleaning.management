@@ -2,7 +2,6 @@
 
 # Represents an invoice in the database.
 class Invoice < ApplicationRecord
-
   belongs_to :client
   has_many :invoice_items, inverse_of: :invoice
 
