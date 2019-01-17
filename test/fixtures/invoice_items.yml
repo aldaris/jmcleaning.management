@@ -1,9 +1,8 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+first_job:
+  invoice: old_invoice
+  service: cleanup
+  quantity: 3.5
 
-one:
-  service:
-  quantity: 9.99
-
-two:
+second_job:
   service:
   quantity: 9.99

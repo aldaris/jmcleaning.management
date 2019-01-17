@@ -1,10 +1,8 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  description: MyString
-  price: 9.99
-  is_active: false
-  is_visible: false
+cleanup:
+  description: Cleanup
+  price: 8.5
+  is_active: true
+  is_visible: true
 
 two:
   description: MyString

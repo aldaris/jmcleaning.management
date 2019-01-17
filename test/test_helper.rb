@@ -1,5 +1,8 @@
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do
+  add_filter '/test/'
+  add_filter %r{^/config/}
+end
 
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'

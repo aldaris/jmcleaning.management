@@ -1,15 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+complete:
+  first_line: First Line
+  second_line: Second Line
+  third_line: Third line
+  town: Bristol
+  post_code: BS12 3AB
 
-one:
-  first_line: MyString
-  second_line: MyString
-  third_line: MyString
-  town: MyString
-  post_code: MyString
-
-two:
-  first_line: MyString
-  second_line: MyString
-  third_line: MyString
-  town: MyString
-  post_code: MyString
+only_required:
+  first_line: Required first line
+  town: Required Town
+  post_code: AB1 2CD

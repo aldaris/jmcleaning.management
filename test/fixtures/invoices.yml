@@ -1,10 +1,8 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  issue_date: 2018-08-11
-  due_date: 2018-08-11
-  client: 
-  pdf: 
+old_invoice:
+  issue_date: <%= 3.weeks.ago.to_s(:db) %>
+  due_date: <%= 2.weeks.ago.to_s(:db) %>
+  client: jack
+  pdf:
 
 two:
   issue_date: 2018-08-11
