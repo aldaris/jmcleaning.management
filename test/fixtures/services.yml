@@ -4,8 +4,8 @@ cleanup:
   is_active: true
   is_visible: true
 
-two:
-  description: MyString
-  price: 9.99
-  is_active: false
-  is_visible: false
+carpet_cleaning:
+  description: Carpet cleaning
+  price: 11.5
+  is_active: true
+  is_visible: true

@@ -13,14 +13,6 @@ class Service < ApplicationRecord
   end
 
   def description_with_price
-    "#{description} - #{formatted_price}"
-  end
-
-  def formatted_price
-    Utils.format_currency(price)
-  end
-
-  def formatted_sum(quantity)
-    Utils.format_currency(price * quantity)
+    "#{description} - #{Utils.format_currency(price)}"
   end
 end
