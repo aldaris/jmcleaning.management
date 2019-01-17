@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Invoice < ApplicationRecord
+
   belongs_to :client
   has_many :invoice_items, inverse_of: :invoice
 
@@ -18,6 +19,6 @@ class Invoice < ApplicationRecord
   private
 
   def calculate_total
-    self.total = invoice_items.map {|item| item.service.price * item.quantity}.reduce(:+)
+    self.total = invoice_items.map { |item| item.service.price * item.quantity }.reduce(:+)
   end
 end

@@ -7,3 +7,6 @@ Layout/EmptyLinesAroundClassBody:
 
 Metrics/LineLength:
   Max: 120
+
+Style/RedundantReturn:
+  Enabled: false
