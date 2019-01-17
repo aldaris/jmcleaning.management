@@ -19,7 +19,7 @@ class InvoicePdf < Prawn::Document
   private
 
   def render_header(invoice)
-    image path('small-logo.png'), at: [367, 720], width: 120
+    image asset_path('small-logo.png'), at: [367, 720], width: 120
     move_cursor_to 675
     text 'INVOICE', size: 36
     move_cursor_to 630
@@ -81,7 +81,7 @@ class InvoicePdf < Prawn::Document
       "Web: <color rgb='007bff'><link href='#{Settings.owner.website}'>#{Settings.owner.website}</link></color>"
   end
 
-  def path(file_name)
+  def asset_path(file_name)
     Rails.root.join('app').join('assets').join('pdf').join(file_name)
   end
 
