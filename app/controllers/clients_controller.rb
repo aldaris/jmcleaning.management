@@ -20,7 +20,7 @@ class ClientsController < ApplicationController
   end
 
   def create
-    @client = Client.new(client_params)
+    @client = Client.new(create_client_params)
 
     if @client.valid?
       @client.save
@@ -65,5 +65,11 @@ class ClientsController < ApplicationController
       .require(:client)
       .permit(:name, :nick_name, :email_address, :phone_number,
               address_attributes: [:id, :first_line, :second_line, :third_line, :town, :post_code])
+  end
+
+  def create_client_params
+    client_params.tap do |params|
+      params.require(:address_attributes)
+    end
   end
 end
