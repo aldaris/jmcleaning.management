@@ -1,6 +1,8 @@
 AllCops:
   Exclude:
     - 'bin/*'
+    - 'Gemfile'
+    - 'Rakefile'
 
 Layout/EmptyLinesAroundClassBody:
   EnforcedStyle: beginning_only
@@ -8,5 +10,14 @@ Layout/EmptyLinesAroundClassBody:
 Metrics/LineLength:
   Max: 120
 
+Style/ConditionalAssignment:
+  Enabled: false
+
 Style/RedundantReturn:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/WordArray:
   Enabled: false

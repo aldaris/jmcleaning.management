@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# The backend implementation for the /services REST resource.
 class ServicesController < ApplicationController
 
   def index

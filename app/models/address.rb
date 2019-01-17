@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Represents an address in the database.
 class Address < ApplicationRecord
 
   belongs_to :client

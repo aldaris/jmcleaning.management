@@ -10,11 +10,11 @@ class InvoicePdf < Prawn::Document
     move_cursor_to 630
     text invoice.client.address.compact_lines.join("\n")
     formatted_text_box [
-                           { text: 'Invoice Date\n', styles: [:bold] },
-                           { text: "#{invoice.issue_date.strftime('%d %b %Y')}\n\n" },
-                           { text: 'Invoice Number\n', styles: [:bold] },
-                           { text: "#{invoice.invoice_id}\n\n" }
-                       ], at: [370, 630], width: 80, height: 100, size: 10
+      { text: 'Invoice Date\n', styles: [:bold] },
+      { text: "#{invoice.issue_date.strftime('%d %b %Y')}\n\n" },
+      { text: 'Invoice Number\n', styles: [:bold] },
+      { text: "#{invoice.invoice_id}\n\n" }
+    ], at: [370, 630], width: 80, height: 100, size: 10
     text_box "#{Settings.owner.name}\n#{Settings.owner.address.join("\n")}",
              at: [470, 630], width: 70, height: 60, align: :right, size: 10
     move_cursor_to 500
@@ -67,7 +67,7 @@ class InvoicePdf < Prawn::Document
     data = [['Description', 'Quantity', 'Price', 'Amount']]
     invoice.invoice_items.each do |item|
       data.push [item.service.description, item.quantity, Utils.format_currency(item.service.price),
-                 Utils.format_currency(item.service.price * item.quantity)]
+                 Utils.format_currency(item.value)]
     end
     data.push ['Total', '', { content: Utils.format_currency(invoice.total), colspan: 2 }]
     return data

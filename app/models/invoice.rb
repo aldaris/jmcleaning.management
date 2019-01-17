@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Represents an invoice in the database.
 class Invoice < ApplicationRecord
 
   belongs_to :client
@@ -13,12 +14,12 @@ class Invoice < ApplicationRecord
   before_create :calculate_total
 
   def invoice_id
-    "INV-#{'%04d' % id}"
+    "INV-#{format('%04d', id)}"
   end
 
   private
 
   def calculate_total
-    self.total = invoice_items.map { |item| item.service.price * item.quantity }.reduce(:+)
+    self.total = invoice_items.map(&:value).reduce(:+)
   end
 end

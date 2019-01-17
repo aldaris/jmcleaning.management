@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# The backend implementation for the /clients REST resource.
 class ClientsController < ApplicationController
 
   def index
@@ -40,7 +41,7 @@ class ClientsController < ApplicationController
   end
 
   def search
-    if params.has_key?(:name)
+    if params.key?(:name)
       @clients = Client
                  .select(:id, :name)
                  .where('lower(name) LIKE ?', "%#{params.require(:name).downcase}%")
@@ -64,6 +65,6 @@ class ClientsController < ApplicationController
     params
       .require(:client)
       .permit(:name, :nick_name, :email_address, :phone_number,
-              address_attributes: %i[id first_line second_line third_line town post_code])
+              address_attributes: [:id, :first_line, :second_line, :third_line, :town, :post_code])
   end
 end

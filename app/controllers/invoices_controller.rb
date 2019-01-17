@@ -1,9 +1,15 @@
 # frozen_string_literal: true
 
+# The backend implementation for the /invoices REST resource.
 class InvoicesController < ApplicationController
 
   def index
-    @invoices = Invoice.all.select(:id, :client_id, :total).includes(:client).order(id: :desc).limit(10)
+    @invoices = Invoice
+                .all
+                .select(:id, :client_id, :total)
+                .includes(:client)
+                .order(id: :desc)
+                .limit(10)
   end
 
   def new
@@ -37,7 +43,8 @@ class InvoicesController < ApplicationController
   private
 
   def invoice_params
-    params.require(:invoice).permit(:client_id, :issue_date, :due_date,
-        invoice_items_attributes: [:service_id, :quantity])
+    params
+      .require(:invoice)
+      .permit(:client_id, :issue_date, :due_date, invoice_items_attributes: [:service_id, :quantity])
   end
 end
