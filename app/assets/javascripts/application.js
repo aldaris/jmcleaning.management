@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 
-
 const hide = element => {
     element.classList.remove("d-block");
     element.classList.add("d-none");
@@ -21,4 +20,15 @@ const hide = element => {
 const show = element => {
     element.classList.remove("d-none");
     element.classList.add("d-block");
+};
+
+const fetchWithGet = (url, error) => {
+    return fetch(url)
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                return error();
+            }
+        });
 };
