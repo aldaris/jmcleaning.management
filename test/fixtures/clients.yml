@@ -3,7 +3,7 @@ jack:
   nick_name: Jack
   email_address: jack@oneill.com
 
-two:
-  name: MyString
-  nick_name: MyString
-  email_address: MyString
+sam:
+  name: Samantha Carter
+  nick_name: Sam
+  email_address: samantha@carter.com

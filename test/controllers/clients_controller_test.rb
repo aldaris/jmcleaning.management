@@ -72,5 +72,30 @@ class ClientsControllerTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_response :success
     assert_select 'span', text: /General/
+    assert_equal 'General', Client.find_by_id(id).nick_name, 'The nick name was not updated in the DB'
+  end
+
+  test 'should search without term' do
+    get '/clients/search'
+    assert_response :success
+    assert_select 'a.dropdown-item', minimum: 1, maximum: 10
+  end
+
+  test 'should find Jack' do
+    get '/clients/search/Jack'
+    assert_response :success
+    assert_select 'a.dropdown-item', count: 1
+  end
+
+  test 'should search case insensitively' do
+    get '/clients/search/jack'
+    assert_response :success
+    assert_select 'a.dropdown-item', count: 1
+  end
+
+  test 'should display a card for a client' do
+    get format('/clients/%d/card', clients(:jack).id)
+    assert_response :success
+    assert_select '.card-title', count: 1
   end
 end
