@@ -9,3 +9,8 @@ carpet_cleaning:
   price: 11.5
   is_active: true
   is_visible: true
+
+invalid:
+  price: 9.5
+  is_active: true
+  is_visible: true

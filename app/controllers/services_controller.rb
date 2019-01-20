@@ -11,7 +11,7 @@ class ServicesController < ApplicationController
   end
 
   def create
-    @service = Service.new(price_params)
+    @service = Service.new(service_params)
 
     if @service.valid?
       @service.save
@@ -38,7 +38,7 @@ class ServicesController < ApplicationController
 
   private
 
-  def price_params
+  def service_params
     params.require(:service).permit(:description, :price, :is_active)
   end
 end
