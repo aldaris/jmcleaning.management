@@ -8,6 +8,10 @@ AllCops:
 Metrics/LineLength:
   Max: 120
 
+Naming/UncommunicativeMethodParamName:
+  AllowedNames:
+    - _
+
 # Not ready to embrace these:
 Style/ConditionalAssignment:
   Enabled: false
