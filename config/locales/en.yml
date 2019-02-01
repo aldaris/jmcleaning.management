@@ -1,5 +1,9 @@
 ---
 en:
+  activerecord:
+    attributes:
+      invoice:
+        pdf: Invoice PDF
   call_for_action:
     add: Add
     header: Oh no!
@@ -33,6 +37,7 @@ en:
       client_details: Client Details
       heading: Create New Invoice
       invoice_details: Invoice Details
+      invoice_upload: Invoice Upload
       search: Find client
   layouts:
     application:
@@ -73,6 +78,9 @@ en:
         email_address: E-mail Address
         name: Name
         nick_name: Nick Name
+      invoice:
+        id: Invoice ID
+        pdf: Invoice PDF
       service:
         description: Description
         is_active: Active

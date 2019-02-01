@@ -20,10 +20,7 @@ class InvoicesController < ApplicationController
 
   def create
     @invoice = Invoice.new(invoice_params)
-    if @invoice.valid?
-      @invoice.save
-      pdf = InvoicePdf.new(@invoice)
-      @invoice.update_attribute(:pdf, pdf.render)
+    if @invoice.save_with_pdf
       redirect_to invoices_path
     else
       render :new
@@ -44,6 +41,6 @@ class InvoicesController < ApplicationController
   def invoice_params
     params
       .require(:invoice)
-      .permit(:client_id, :issue_date, :due_date, invoice_items_attributes: [:service_id, :quantity])
+      .permit(:id, :client_id, :issue_date, :due_date, :pdf, invoice_items_attributes: [:service_id, :quantity])
   end
 end

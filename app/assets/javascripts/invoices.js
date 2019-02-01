@@ -8,7 +8,6 @@ const handleSuggestionSelection = event => {
             hide(document.getElementById("search"));
             document.getElementById("selected_client").innerHTML = text;
             document.getElementById("invoice_client_id").value = clientId;
-            show(document.getElementById("invoice-container"));
         });
 };
 
@@ -42,8 +41,10 @@ const addCloseListener = node => {
 
 document.addEventListener("DOMContentLoaded", () => {
     let searchField = document.getElementById("search_client");
-    searchField.addEventListener("input", retrieveAutoCompleteSuggestions);
-    searchField.addEventListener("focus", retrieveAutoCompleteSuggestions);
+    if (searchField) {
+        searchField.addEventListener("input", retrieveAutoCompleteSuggestions);
+        searchField.addEventListener("focus", retrieveAutoCompleteSuggestions);
+    }
 
     let closeButtons = document.querySelectorAll(".close");
     for (i = 0; i < closeButtons.length; i++) {

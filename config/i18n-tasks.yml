@@ -100,7 +100,7 @@ search:
 ignore_unused:
   - 'errors.messages.{blank,not_a_number}'
   - 'helpers.submit.*'
-# - 'activerecord.attributes.*'
+  - 'activerecord.attributes.*'
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
   - 'simple_form.{placeholders,hints,labels}.*'

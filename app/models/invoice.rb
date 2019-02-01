@@ -6,6 +6,7 @@ class Invoice < ApplicationRecord
   has_many :invoice_items, inverse_of: :invoice
 
   validates_presence_of :issue_date, :due_date
+  validates :pdf, presence: true, unless: proc { |invoice| invoice.id.nil? }
   validates_associated :invoice_items
 
   accepts_nested_attributes_for :invoice_items
@@ -14,6 +15,15 @@ class Invoice < ApplicationRecord
 
   def invoice_id
     "INV-#{format('%04d', id)}"
+  end
+
+  def save_with_pdf
+    if save
+      if pdf.nil?
+        pdf = InvoicePdf.new(self)
+        update_attribute(:pdf, pdf.render)
+      end
+    end
   end
 
   private

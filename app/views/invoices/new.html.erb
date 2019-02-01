@@ -7,45 +7,55 @@
     <div class="card mb-5">
       <h5 class="card-header"><i class="fas fa-user-tie"></i> <%= t ".client_details" %></h5>
       <div class="card-body">
-        <div id="search" class="form-group">
-          <%= label_tag "search_client", t(".search") %>
-          <%= text_field_tag "search_client", nil, class: "form-control", autocomplete: "off" %>
-          <div class="col-auto">
-            <div id="found_clients" class="form-group dropdown-menu border-top-0 rounded-0">
+        <% if @invoice.client_id.nil? %>
+          <div id="search" class="form-group">
+            <%= label_tag "search_client", t(".search") %>
+            <%= text_field_tag "search_client", nil, class: "form-control", autocomplete: "off" %>
+            <div class="col-auto">
+              <div id="found_clients" class="form-group dropdown-menu border-top-0 rounded-0">
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
         <div id="selected_client">
+          <% unless @invoice.client_id.nil? %>
+            <%= render partial: 'clients/card', locals: { client: @invoice.client } %>
+          <% end %>
         </div>
         <%= form.hidden_field :client_id %>
       </div>
-      <div id="invoice-container" class="d-none">
-        <h5 class="card-header border-top">
-          <i class="fas fa-clipboard-list"></i> <%= t ".invoice_details" %>
-        </h5>
-        <div class="card-body">
-          <%= form.input :issue_date, html5: true %>
-          <%= form.input :due_date, html5: true %>
-          <div class="form-group">
-            <%= form.label :invoice_items %>
-            <%= form.fields_for :invoice_items do |item_fields| %>
-              <div class="card bg-light mb-3">
-                <div class="mr-2">
-                  <span class="text-danger close" aria-label="Close">&times;</span>
-                </div>
-                <div class="card-body py-0">
-                  <div class="form-row">
-                    <%= item_fields.association :service, collection: Service.where(is_active: true).order(:description),
-                        label_method: :description_with_price, wrapper_html: {class: "col-md-10"} %>
-                    <%= item_fields.input :quantity, input_html: {step: 0.5, min: 0.5}, wrapper_html: {class: "col-md-2"} %>
-                  </div>
+      <h5 class="card-header border-top">
+        <i class="fas fa-clipboard-list"></i> <%= t ".invoice_details" %>
+      </h5>
+      <div class="card-body">
+        <%= form.input :issue_date, html5: true %>
+        <%= form.input :due_date, html5: true %>
+        <div class="form-group">
+          <%= form.label :invoice_items %>
+          <%= form.fields_for :invoice_items do |item_fields| %>
+            <div class="card bg-light mb-3">
+              <div class="mr-2">
+                <span class="text-danger close" aria-label="Close">&times;</span>
+              </div>
+              <div class="card-body py-0">
+                <div class="form-row">
+                  <%= item_fields.association :service, collection: Service.where(is_active: true).order(:description),
+                                              label_method: :description_with_price, wrapper_html: { class: "col-md-10" } %>
+                  <%= item_fields.input :quantity, input_html: { step: 0.5, min: 0.5 }, wrapper_html: { class: "col-md-2" } %>
                 </div>
               </div>
-            <% end %>
-          </div>
-          <%= form.button :submit, class: "btn-primary btn-block" %>
+            </div>
+          <% end %>
         </div>
       </div>
+      <h5 class="card-header border-top">
+        <i class="fas fa-hdd"></i> <%= t ".invoice_upload" %>
+      </h5>
+      <div class="card-body">
+        <%= form.input :id %>
+        <%= form.input :pdf, as: :file, wrapper: :custom_file, input_html: { accept: 'application/pdf' } %>
+      </div>
+      <%= form.button :submit, class: "btn-primary btn-block" %>
     </div>
   <% end %>
 </div>

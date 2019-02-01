@@ -54,8 +54,8 @@ class ClientsController < ApplicationController
   end
 
   def card
-    @client = Client.find(params[:id])
-    render layout: nil
+    client = Client.find(params[:id])
+    render layout: nil, partial: 'card', locals: { client: client }
   end
 
   private
