@@ -8,7 +8,7 @@ class InvoicesController < ApplicationController
                 .select(:id, :client_id, :total)
                 .includes(:client)
                 .order(id: :desc)
-                .limit(10)
+                .limit(25)
   end
 
   def new

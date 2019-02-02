@@ -50,4 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
     for (i = 0; i < closeButtons.length; i++) {
         addCloseListener(closeButtons[i]);
     }
+    let uploadField = document.getElementById("invoice_pdf");
+    uploadField.addEventListener("change", event => {
+        document.querySelector(".custom-file-label").textContent = event.currentTarget.value.split("\\").pop();
+    });
 });

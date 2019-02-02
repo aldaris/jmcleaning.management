@@ -4,5 +4,6 @@ first_job:
   quantity: 3.5
 
 second_job:
-  service:
-  quantity: 9.99
+  invoice: current_invoice
+  service: carpet_cleaning
+  quantity: 4

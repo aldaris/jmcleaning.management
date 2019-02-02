@@ -2,10 +2,10 @@ old_invoice:
   issue_date: <%= 3.weeks.ago.to_s(:db) %>
   due_date: <%= 2.weeks.ago.to_s(:db) %>
   client: jack
-  pdf:
+  total: 29.75
 
-two:
-  issue_date: 2018-08-11
-  due_date: 2018-08-11
-  client: 
-  pdf: 
+current_invoice:
+  issue_date: <%= Date.today %>
+  due_date: <%= Date.today + 3.days %>
+  client: sam
+  total: 46

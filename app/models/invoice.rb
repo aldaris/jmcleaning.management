@@ -18,12 +18,14 @@ class Invoice < ApplicationRecord
   end
 
   def save_with_pdf
+    self.pdf = pdf.read unless pdf.nil?
     if save
       if pdf.nil?
         pdf = InvoicePdf.new(self)
         update_attribute(:pdf, pdf.render)
       end
     end
+    valid?
   end
 
   private
