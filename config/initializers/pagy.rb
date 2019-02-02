@@ -1,3 +1,7 @@
 # frozen_string_literal: true
 
-Pagy::VARS[:items] = 25
+if Rails.env.development?
+  Pagy::VARS[:items] = 25
+elsif Rails.env.test?
+  Pagy::VARS[:items] = 1
+end
