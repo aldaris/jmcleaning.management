@@ -8,8 +8,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Allow using YAML config files for the project
 gem 'config', '~> 1.7.0'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
 gem 'pagy', '~> 1.3.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -21,7 +19,7 @@ gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.2'
 gem 'responders', '~> 2.4.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sassc-rails', '~> 2.1.0'
 gem 'simple_form', '~> 4.0.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
