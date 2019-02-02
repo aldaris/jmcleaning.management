@@ -1,9 +1,9 @@
 owner:
   name: A Pretty Long Name
   address:
-    - "árvíztűrő tükörfúrógép"
-    - "ÁRVÍZTŰRŐ TÜKÖRFÚRÓGÉP"
-    - "對該語文的規範與標準"
+    - "Test Address"
+    - "Hello World"
+    - "Beijing"
     - "BS12 3AB"
   website: "https://jmcleaning.services"
   utr_number: 12345 67890

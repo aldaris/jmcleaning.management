@@ -17,6 +17,12 @@ class Invoice < ApplicationRecord
     "INV-#{format('%04d', id)}"
   end
 
+  def prepare
+    self.issue_date = Date.today
+    self.due_date = Date.today + 3.days
+    self.invoice_items = [InvoiceItem.new, InvoiceItem.new]
+  end
+
   def save_with_pdf
     self.pdf = pdf.read unless pdf.nil?
     if save
