@@ -2,13 +2,10 @@
 
 # The backend implementation for the /invoices REST resource.
 class InvoicesController < ApplicationController
+  include Pagy::Backend
+
   def index
-    @invoices = Invoice
-                .all
-                .select(:id, :client_id, :total)
-                .includes(:client)
-                .order(id: :desc)
-                .limit(25)
+    @pagy, @invoices = pagy(Invoice.all.select(:id, :client_id, :total).includes(:client).order(id: :desc))
   end
 
   def new

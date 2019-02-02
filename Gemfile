@@ -10,6 +10,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'config', '~> 1.7.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+gem 'pagy', '~> 1.3.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 gem 'prawn', '~> 2.2.2'
