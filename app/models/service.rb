@@ -6,8 +6,8 @@ class Service < ApplicationRecord
   validates_presence_of :description
   validates_numericality_of :price, greater_than_or_equal_to: 1
 
-  def self.inactivate(id)
-    service = Service.find(id)
+  def self.inactivate(service_id)
+    service = Service.find(service_id)
     service.is_active = false
     return service
   end
