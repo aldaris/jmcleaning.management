@@ -26,6 +26,8 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     respond_to do |format|
       format.pdf do
+        @invoice.pdf = InvoicePdf.new(@invoice).render
+        @invoice.update_attribute(:pdf, @invoice.pdf)
         send_data @invoice.pdf, filename: "#{@invoice.invoice_id}.pdf", type: 'application/pdf', disposition: 'inline'
       end
     end
