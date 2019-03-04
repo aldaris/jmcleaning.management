@@ -23,10 +23,13 @@ class InvoicePdf < Prawn::Document
     move_cursor_to 675
     text 'INVOICE', size: 36
     move_cursor_to 630
-    text "#{invoice.client.name}\n#{invoice.client.address.compact_lines.join("\n")}"
+    text customer_details(invoice)
     formatted_text_box invoice_details(invoice), at: [370, 630], width: 80, height: 100, size: 10
-    text_box owner_details,
-             at: [470, 630], width: 70, height: 60, align: :right, size: 10
+    text_box owner_details, at: [470, 630], width: 70, height: 60, align: :right, size: 10
+  end
+
+  def customer_details(invoice)
+    "#{invoice.client.name}\n#{invoice.client.address.compact_lines.join("\n")}"
   end
 
   def invoice_details(invoice)
