@@ -34,6 +34,11 @@ class Invoice < ApplicationRecord
     valid?
   end
 
+  def mark_as_paid
+    self.is_invoice_paid = true
+    save
+  end
+
   private
 
   def calculate_total

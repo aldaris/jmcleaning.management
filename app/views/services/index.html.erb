@@ -1,11 +1,6 @@
 <% content_for :scripts do %>
   <%= javascript_include_tag :utils, defer: true %>
 <% end %>
-<% if flash[:success] %>
-  <div class="alert alert-success text-center" role="alert"><%= flash[:success] %></div>
-<% elsif flash[:failed] %>
-  <div class="alert alert-danger text-center" role="alert"><%= flash[:failed] %></div>
-<% end %>
 <% if @active_services.empty? %>
   <div class="card bg-light mb-3">
     <h5 class="card-header"><%= t 'call_for_action.header' %></h5>

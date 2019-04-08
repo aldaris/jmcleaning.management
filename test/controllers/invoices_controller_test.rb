@@ -8,6 +8,12 @@ class InvoicesControllerTest < ActionDispatch::IntegrationTest
     assert_select '[data-href]', max: 10
   end
 
+  test 'should have mark as paid button for unpaid invoices' do
+    get invoices_path
+    assert_response :success
+    assert_select 'tr[data-href] a.btn-success', count: 1
+  end
+
   test 'should display the new invoice page' do
     get new_invoice_path
 
@@ -31,5 +37,27 @@ class InvoicesControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     follow_redirect!
     assert_response :success
+  end
+
+  test 'should mark invoices paid' do
+    id = invoices(:current_invoice).id
+    put mark_as_paid_invoice_path(id)
+
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
+    assert_select '.alert-success', count: 1
+    assert_equal true, Invoice.find_by_id(id).is_invoice_paid, 'The invoice was not set to paid'
+  end
+
+  test 'should display error message when unable to mark invoice as paid' do
+    id = invoices(:missing_pdf).id
+    put mark_as_paid_invoice_path(id)
+
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
+    assert_select '.alert-danger', count: 1, text: /Invoice PDF is required/
+    assert_equal false, Invoice.find_by_id(id).is_invoice_paid, 'The invoice was not set to paid'
   end
 end

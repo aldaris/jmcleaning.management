@@ -7,3 +7,8 @@ second_job:
   invoice: current_invoice
   service: carpet_cleaning
   quantity: 4
+
+third_job:
+  invoice: missing_pdf
+  service: cleanup
+  quantity: 2

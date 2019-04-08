@@ -12,5 +12,8 @@ Rails.application.routes.draw do
     put 'inactivate', on: :member
   end
 
-  resources :invoices, :services
+  resources :invoices do
+    put 'mark-as-paid', on: :member
+  end
+  resources :services
 end

@@ -31,7 +31,12 @@ en:
         create: Create New Service
   invoices:
     index:
+      actions: Actions
       invoice_id: Invoice ID
+      mark_as_paid:
+        failed: 'Failed to mark invoice as paid: %{message}'
+        success: Invoice %{id} has been marked as paid
+      payment_tooltip: Customer paid yet?
       total: Total
     new:
       client_details: Client Details

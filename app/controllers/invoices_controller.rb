@@ -5,7 +5,9 @@ class InvoicesController < ApplicationController
   include Pagy::Backend
 
   def index
-    @pagy, @invoices = pagy(Invoice.all.select(:id, :client_id, :total).includes(:client).order(id: :desc))
+    @pagy, @invoices = pagy(Invoice.all.select(:id, :client_id, :total, :is_invoice_paid)
+                                .includes(:client)
+                                .order(id: :desc))
   end
 
   def new
@@ -29,6 +31,17 @@ class InvoicesController < ApplicationController
         send_data @invoice.pdf, filename: "#{@invoice.invoice_id}.pdf", type: 'application/pdf', disposition: 'inline'
       end
     end
+  end
+
+  def mark_as_paid
+    @invoice = Invoice.find(params[:id])
+    if @invoice.mark_as_paid
+      flash[:success] = t('invoices.index.mark_as_paid.success', id: @invoice.invoice_id)
+    else
+      flash[:failed] = t('invoices.index.mark_as_paid.failed', message: @invoice.errors.full_messages.first)
+    end
+    page = params[:page].to_i
+    redirect_to invoices_path(page: page != 0 ? page : 1 )
   end
 
   private

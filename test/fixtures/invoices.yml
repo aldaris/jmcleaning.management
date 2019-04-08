@@ -2,10 +2,21 @@ old_invoice:
   issue_date: <%= 3.weeks.ago.to_s(:db) %>
   due_date: <%= 2.weeks.ago.to_s(:db) %>
   client: jack
+  pdf: !!binary "aGVsbG93b3JsZA=="
   total: 29.75
+  is_invoice_paid: true
 
 current_invoice:
   issue_date: <%= Date.today %>
   due_date: <%= Date.today + 3.days %>
   client: sam
+  pdf: !!binary "aGVsbG93b3JsZA=="
   total: 46
+  is_invoice_paid: false
+
+missing_pdf:
+  issue_date: <%= Date.today %>
+  due_date: <%= Date.today + 3.days %>
+  client: t'ealc
+  total: 17
+  is_invoice_paid: false
