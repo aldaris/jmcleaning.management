@@ -35,16 +35,20 @@ class InvoicesController < ApplicationController
 
   def mark_as_paid
     @invoice = Invoice.find(params[:id])
-    if @invoice.mark_as_paid
+    set_flash_message(@invoice.mark_as_paid)
+    page = params[:page].to_i
+    redirect_to invoices_path(page: page != 0 ? page : 1)
+  end
+
+  private
+
+  def set_flash_message(status)
+    if status
       flash[:success] = t('invoices.index.mark_as_paid.success', id: @invoice.invoice_id)
     else
       flash[:failed] = t('invoices.index.mark_as_paid.failed', message: @invoice.errors.full_messages.first)
     end
-    page = params[:page].to_i
-    redirect_to invoices_path(page: page != 0 ? page : 1 )
   end
-
-  private
 
   def invoice_params
     params
