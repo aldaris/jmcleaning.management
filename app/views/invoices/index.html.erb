@@ -39,7 +39,7 @@
             <td><%= Utils.format_currency(invoice.total) %></td>
             <td class="text-nowrap">
               <% unless invoice.is_invoice_paid? %>
-                <%= link_to "Mark as paid", mark_as_paid_invoice_path(invoice, page: params[:page]),
+                <%= link_to t('.mark_as_paid.button_label'), mark_as_paid_invoice_path(invoice, page: params[:page]),
                             class: 'btn btn-sm btn-success', method: :put %>
               <% end %>
             </td>
