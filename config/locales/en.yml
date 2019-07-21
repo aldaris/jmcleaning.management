@@ -33,12 +33,14 @@ en:
     index:
       actions: Actions
       invoice_id: Invoice ID
+      invoice_paid: Invoice has been paid by customer
       mark_as_paid:
         button_label: Mark as paid
         failed: 'Failed to mark invoice as paid: %{message}'
         success: Invoice %{id} has been marked as paid
-      payment_tooltip: Customer paid yet?
+      payment_tooltip: Payment received?
       total: Total
+      waiting_for_payment: Customer has not paid yet
     new:
       client_details: Client Details
       heading: Create New Invoice

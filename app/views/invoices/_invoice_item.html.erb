@@ -1,0 +1,15 @@
+<%= form.simple_fields_for :invoice_items, child_index: child_index do |item_fields| %>
+  <div class="card bg-light mb-3">
+    <div class="mr-2">
+      <span class="text-danger close" aria-label="Close">&times;</span>
+    </div>
+    <div class="card-body py-0">
+      <div class="form-row">
+        <%= item_fields.association :service, collection: @services, label_method: :description_with_price,
+                                    wrapper_html: { class: 'col-md-10' } %>
+        <%= item_fields.input :quantity, input_html: { step: 0.5, min: 0.5 },
+                              wrapper_html: { class: 'col-md-2' } %>
+      </div>
+    </div>
+  </div>
+<% end %>

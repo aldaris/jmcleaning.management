@@ -30,9 +30,11 @@
           <tr data-href="<%= invoice_path(invoice, format: :pdf) %>">
             <td>
               <% if invoice.is_invoice_paid? %>
-                <i class="mr-2 text-success far fa-check-circle"></i>
+                <i class="mr-2 text-success far fa-check-circle" data-toggle="tooltip" data-placement="top"
+                   title="<%= t '.invoice_paid' %>"></i>
               <% else %>
-                <i class="mr-2 text-danger fas fa-ban"></i>
+                <i class="mr-2 text-danger fas fa-ban" data-toggle="tooltip" data-placement="top"
+                   title="<%= t '.waiting_for_payment' %>"></i>
               <% end %>
               <%= invoice.invoice_id %></td>
             <td class="text-nowrap"><%= invoice.client.name %></td>
