@@ -20,7 +20,7 @@ gem 'rails', '~> 5.2.3'
 gem 'responders', '~> 2.4.0'
 # Use SCSS for stylesheets
 gem 'sassc-rails', '~> 2.1.0'
-gem 'simple_form', '~> 4.0.1'
+gem 'simple_form', '~> 5.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

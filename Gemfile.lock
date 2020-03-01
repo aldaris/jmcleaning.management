@@ -216,7 +216,7 @@ GEM
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
-    simple_form (4.0.1)
+    simple_form (5.0.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
     simplecov (0.16.1)
@@ -278,7 +278,7 @@ DEPENDENCIES
   responders (~> 2.4.0)
   sassc-rails (~> 2.1.0)
   selenium-webdriver
-  simple_form (~> 4.0.1)
+  simple_form (~> 5.0.0)
   simplecov (~> 0.16.1)
   spring
   spring-watcher-listen (~> 2.0.0)
