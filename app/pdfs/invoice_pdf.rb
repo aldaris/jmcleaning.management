@@ -80,8 +80,7 @@ class InvoicePdf < Prawn::Document
 
   def footer_text
     "#{Settings.owner.name}, Address: #{Settings.owner.address.join(', ')}, "\
-      "UTR Number: #{Settings.owner.utr_number}\n"\
-      "Web: <color rgb='007bff'><link href='#{Settings.owner.website}'>#{Settings.owner.website}</link></color>"
+      "UTR Number: #{Settings.owner.utr_number}"
   end
 
   def asset_path(file_name)
