@@ -7,7 +7,7 @@ ruby '>= 2.5.3'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Allow using YAML config files for the project
-gem 'config', '~> 1.7.0'
+gem 'config'
 gem 'pagy', '~> 1.3.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
