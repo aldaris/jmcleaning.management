@@ -16,7 +16,7 @@ gem 'prawn-table', '~> 0.2.2'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.3'
+gem 'rails', '~> 5.2.4'
 gem 'responders', '~> 2.4.0'
 # Use SCSS for stylesheets
 gem 'sassc-rails', '~> 2.1.0'
