@@ -34,6 +34,7 @@ en:
       actions: Actions
       invoice_id: Invoice ID
       invoice_paid: Invoice has been paid by customer
+      issue_date: Issue Date
       mark_as_paid:
         button_label: Mark as paid
         failed: 'Failed to mark invoice as paid: %{message}'

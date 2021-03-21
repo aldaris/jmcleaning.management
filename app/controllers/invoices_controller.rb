@@ -5,7 +5,7 @@ class InvoicesController < ApplicationController
   include Pagy::Backend
 
   def index
-    @pagy, @invoices = pagy(Invoice.all.select(:id, :client_id, :total, :is_invoice_paid)
+    @pagy, @invoices = pagy(Invoice.all.select(:id, :issue_date, :client_id, :total, :is_invoice_paid)
                                 .includes(:client)
                                 .order(id: :desc))
   end
