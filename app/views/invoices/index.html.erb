@@ -19,6 +19,7 @@
         <tr>
           <th><i class="mr-2 far fa-question-circle" data-toggle="tooltip" data-placement="top"
                  title="<%= t '.payment_tooltip' %>"></i> <%= t '.invoice_id' %></th>
+          <th><%= t '.issue_date' %></th>
           <th><%= t 'simple_form.labels.client.name' %></th>
           <th><%= t '.total' %></th>
           <th><%= t '.actions' %></th>
@@ -37,6 +38,7 @@
                    title="<%= t '.waiting_for_payment' %>"></i>
               <% end %>
               <%= invoice.invoice_id %></td>
+            <td class="text-nowrap"><%= invoice.issue_date %></td>
             <td class="text-nowrap"><%= invoice.client.name %></td>
             <td><%= Utils.format_currency(invoice.total) %></td>
             <td class="text-nowrap">
