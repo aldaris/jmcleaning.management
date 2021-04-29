@@ -8,9 +8,7 @@ This application allows **basic** management of invoices for a small self-employ
 
 ## Requirements
 
-* Ruby version: 2.5.3
-* PostgreSQL 11.1+ running locally
-* Either puma running in development mode, or an Apache Reverse proxy correctly set up to proxy to the puma server instance
+* Docker
 
 ### Configuration 
 

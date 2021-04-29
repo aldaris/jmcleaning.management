@@ -7,9 +7,9 @@ development:
   adapter: postgresql
   encoding: unicode
   database: jmcleaning
+  host: <%= ENV['POSTGRES_HOST'] %>
   username: jmcleaning
   password: changeit
-  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -23,7 +23,7 @@ production:
   <<: *default
   adapter: postgresql
   encoding: unicode
-  database: jmcleaning
-  host: localhost
+  database: <%= Rails.application.credentials.dig(:production, :db_name) %>
+  host: <%= ENV['POSTGRES_HOST'] %>
   username: <%= Rails.application.credentials.dig(:production, :db_user) %>
   password: <%= Rails.application.credentials.dig(:production, :db_password) %>
