@@ -1,0 +1,21 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  rails:
+    build:
+      context: rails
+      dockerfile: Dockerfile.dev
+    depends_on:
+      - postgres
+    environment:
+      - POSTGRES_HOST=postgres
+    ports:
+      - 3000:3000
+    volumes:
+      - ./rails:/usr/src/app
+  postgres:
+    image: postgres:13.2-alpine
+    volumes:
+      - jmcleaning-dev-db:/var/lib/postgresql/data
+
+volumes:
+  jmcleaning-dev-db:

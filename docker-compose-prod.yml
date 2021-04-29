@@ -1,0 +1,35 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  rails:
+    build:
+      context: rails
+    depends_on:
+      - postgres
+    environment:
+      - POSTGRES_HOST=postgres
+  postgres:
+    image: postgres:13.2-alpine
+    volumes:
+      - type: bind
+        source: ./db
+        target: /var/lib/postgresql/data
+  webserver:
+    build:
+      context: webserver
+    depends_on:
+      - rails
+    ports:
+      - 80:80
+      - 443:443
+    secrets:
+      - jmcleaning-cert
+      - jmcleaning-key
+      - jmcleaning-chain
+
+secrets:
+  jmcleaning-cert:
+    file: secrets/jmcleaning-cert
+  jmcleaning-key:
+    file: secrets/jmcleaning-key
+  jmcleaning-chain:
+    file: secrets/jmcleaning-chain

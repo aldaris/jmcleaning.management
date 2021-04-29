@@ -8,14 +8,14 @@
 /.bundle
 
 # Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
+/rails/db/*.sqlite3
+/rails/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+/rails/log/*
+/rails/tmp/*
+!/rails/log/.keep
+!/rails/tmp/.keep
 
 # Ignore uploaded files in development
 /storage/*
@@ -27,11 +27,14 @@
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
-/config/master.key
+/rails/config/master.key
 
-config/settings.local.yml
-config/settings/*.local.yml
-config/environments/*.local.yml
+/rails/config/settings.local.yml
+/rails/config/settings/*.local.yml
+/rails/config/environments/*.local.yml
 
 # Ignore coverage reports
 coverage/
+
+/rails/vendor/cache
+/secrets

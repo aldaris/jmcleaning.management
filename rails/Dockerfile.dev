@@ -1,0 +1,18 @@
+FROM ruby:2.7.3-alpine
+
+ENV LANG C.UTF-8
+
+RUN apk add --update --no-cache \
+  build-base \
+  postgresql-dev \
+  sqlite-dev \
+  nodejs
+
+WORKDIR /usr/src/app
+COPY ./Gemfile* ./
+RUN bundle install
+COPY . .
+RUN bundle exec rake test
+
+EXPOSE 3000
+CMD ["rails", "server", "-b", "0.0.0.0"]
