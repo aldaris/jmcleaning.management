@@ -1,14 +1,15 @@
 language: ruby
 cache: bundler
+gemfile: rails/Gemfile
 rvm:
-  - 2.5.3
+  - 2.7.3
 
 before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./rails/cc-test-reporter
+  - chmod +x ./rails/cc-test-reporter
 
 script:
-  - bundle exec rake test
+  - sh -c 'cd rails && bundle exec rake test'
 
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - ./rails/cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
