@@ -29,7 +29,9 @@ class InvoicePdf < Prawn::Document
   end
 
   def customer_details(invoice)
-    "#{invoice.client.name}\n#{invoice.client.address.compact_lines.join("\n")}"
+    "#{invoice.client.name}\n" +
+    "#{invoice.client.address.compact_lines.join("\n")}" +
+    (invoice.client.extra_line.blank? ? "" : "\n#{invoice.client.extra_line}")
   end
 
   def invoice_details(invoice)
